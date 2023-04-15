@@ -1,7 +1,7 @@
 from django.db import models
 
 class Componente(models.Model):
-    codigo_referencia = models.CharField(max_length=50, unique=True)
+    Componentes_codigo_referencia = models.CharField(max_length=50, unique=True)
     nombre_modelo = models.CharField(max_length=100)
     marca = models.CharField(max_length=50)
 
@@ -11,10 +11,10 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
     categoria = models.CharField(max_length=50)
-    componentes = models.ManyToManyField(Componente)
+    componentes = models.ForeignKey(Componente, on_delete=models.CASCADE)
 
 class Pedido(models.Model):
-    codigo_referencia = models.CharField(max_length=50, unique=True)
+    Pedido_codigo_referencia = models.CharField(max_length=50, unique=True)
     fecha = models.DateField()
     cif_cliente = models.CharField(max_length=50)
     nombre_empresa_cliente = models.CharField(max_length=100)
