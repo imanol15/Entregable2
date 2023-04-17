@@ -3,7 +3,7 @@ from django.db import models
 class Componente(models.Model):
     Componentes_codigo_referencia = models.CharField(max_length=50, unique=True)
     nombre_modelo = models.CharField(max_length=100)
-    marca = models.CharField(max_length=60)
+    marca = models.CharField(max_length=70)
 
 class Producto(models.Model):
     referencia = models.CharField(max_length=50, unique=True)
