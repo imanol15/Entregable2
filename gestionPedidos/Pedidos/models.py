@@ -3,7 +3,7 @@ from django.db import models
 class Componente(models.Model):
     Componentes_codigo_referencia = models.CharField(max_length=50, unique=True)
     nombre_modelo = models.CharField(max_length=100)
-    marca = models.CharField(max_length=50)
+    marca = models.CharField(max_length=60)
 
 class Producto(models.Model):
     referencia = models.CharField(max_length=50, unique=True)
@@ -23,3 +23,5 @@ class Pedido(models.Model):
     producto_solicitado = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
     precio_total = models.DecimalField(max_digits=10, decimal_places=2)
+
+    
