@@ -1,6 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Producto, Pedido
 from . import ProductoForm, PedidoForm
+from django.views.generic import ListView, DetailView
+
+
+
+class PedidoListView(ListView):
+    model = Pedido
+
+
 
 def lista_productos(request):
     productos = Producto.objects.all()
@@ -48,3 +56,4 @@ def crear_pedido(request):
     else:
         form = PedidoForm()
     return render(request, 'crear_pedido.html', {'form': form})
+
