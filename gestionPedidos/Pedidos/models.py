@@ -33,7 +33,7 @@ class Pedido(models.Model):
     codigo_referencia = models.CharField(max_length=50, unique=True)
     fecha = models.DateField()
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    precio_total = models.DecimalField(max_digits=10, decimal_places=2)
+    cantidad = models.IntegerField()
     def __str__(self):
         return self.codigo_referencia  
 
@@ -41,9 +41,10 @@ class Pedido(models.Model):
 class Producto_pedido(models.Model):
     producto_solicitado = models.ForeignKey(Producto, on_delete=models.CASCADE)
     pedido_solicitado = models.ForeignKey(Pedido, on_delete=models.CASCADE)
-    cantidad = models.IntegerField()
+    precio_total = models.DecimalField(max_digits=10, decimal_places=2)
+
     def __str__(self):
-        return self.pedido_solicitado + '' + self.producto_solicitado
+        return self.pedido_solicitado + '' + self.producto_solicitado + '' + self.precio_total
     
 
 
