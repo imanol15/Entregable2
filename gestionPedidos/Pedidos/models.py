@@ -6,6 +6,8 @@ class Componente(models.Model):
     componentes_codigo_referencia = models.CharField(max_length=50, unique=True)
     nombre_modelo = models.CharField(max_length=100)
     marca = models.CharField(max_length=70)
+    def __str__(self):
+        return self.nombre_modelo
 
 
 class Producto(models.Model):
@@ -15,24 +17,33 @@ class Producto(models.Model):
     descripcion = models.TextField()
     categoria = models.CharField(max_length=50)
     componentes = models.ForeignKey(Componente, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.nombre
     
 class Cliente(models.Model):
-    cif_cliente = models.CharField(max_length=50)
-    nombre_empresa_cliente = models.CharField(max_length=100)
-    direccion_cliente = models.CharField(max_length=200)
-    datos_contacto_cliente = models.CharField(max_length=200)
+    cif = models.CharField(max_length=50)
+    nombre_empresa = models.CharField(max_length=100)
+    direccion = models.CharField(max_length=200)
+    datos_contacto = models.CharField(max_length=200)
+    def __str__(self):
+        return self.nombre_empresa
     
 
 class Pedido(models.Model):
-    pedido_codigo_referencia = models.CharField(max_length=50, unique=True)
+    codigo_referencia = models.CharField(max_length=50, unique=True)
     fecha = models.DateField()
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     precio_total = models.DecimalField(max_digits=10, decimal_places=2)
+    def __str__(self):
+        return self.codigo_referencia  
+
 # Hemos hecho una conexion n-m para producto pedido, es decir, varios pedidos pueden ser de varios productos y viceersa
 class Producto_pedido(models.Model):
     producto_solicitado = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    producto_solicitado = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+    pedido_solicitado = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
+    def __str__(self):
+        return self.pedido_solicitado + '' + self.producto_solicitado
     
 
 
