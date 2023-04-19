@@ -1,5 +1,5 @@
 from django.db import models
-# ENtre las clases Componente y Producto hemos elegido que sea 1-n, es decir, un componente tiene varios Productos 
+# Entre las clases Componente y Producto hemos elegido que sea 1-n, es decir, un componente tiene varios Productos 
 # y varios productos pueden tener el mismo componente, aunque tambien podria ser una n-m
 #  que varios componentes sean de varios productos y viceversa
 class Componente(models.Model):
