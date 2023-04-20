@@ -1,7 +1,7 @@
 from django.db import models
-# Entre las clases Componente y Producto hemos elegido que sea 1-n, es decir, un componente tiene varios Productos 
-# y varios productos pueden tener el mismo componente, aunque tambien podria ser una n-m
-#  que varios componentes sean de varios productos y viceversa
+# Entre las clases Componente y Producto hemos elegido que tenga una relación 1-n, es decir, un componente tiene varios Productos 
+# y varios productos pueden tener el mismo componente, aunque tambien podria dependiendo de quien lo piense puede ser una n-m
+# que varios componentes sean de varios productos y viceversa.
 class Componente(models.Model):
     componentes_codigo_referencia = models.CharField(max_length=50, unique=True)
     nombre_modelo = models.CharField(max_length=100)
@@ -37,7 +37,7 @@ class Pedido(models.Model):
     def __str__(self):
         return self.codigo_referencia  
 
-# Hemos hecho una conexion n-m para producto pedido, es decir, varios pedidos pueden ser de varios productos y viceersa
+# Hemos hecho una conexion n-m para producto pedido, es decir, varios pedidos pueden ser de varios productos y viceversa
 class Producto_pedido(models.Model):
     producto_solicitado = models.ForeignKey(Producto, on_delete=models.CASCADE)
     pedido_solicitado = models.ForeignKey(Pedido, on_delete=models.CASCADE)
