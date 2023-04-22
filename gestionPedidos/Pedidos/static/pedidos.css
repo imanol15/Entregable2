@@ -1,0 +1,131 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(30, 205, 205);
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  /* Aqui empieza el codigo css que se utiliza para el indice del footer*/
+  .indice {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .indice li {
+    list-style: none;
+    padding: 10px;
+    margin-top: 15px;
+  }
+  
+  .indice a {
+    color: black;
+    text-decoration: none;
+  
+  }
+  
+  .indice :hover {
+    color: rgb(239, 14, 239);
+  
+  }
+  
+  
+
+  /* Aqui empieza el css del footer de la pagina que se divide en tres partes navegacion, que hacemos y datos*/
+footer {
+    background-color: black;
+    color: white;
+  
+  }
+  
+  .contenedor-footer {
+    display: flex;
+    justify-content: space-between;
+  
+  }
+  
+  /** El  CSS del apartado de navegacion que lo mas significatico es que le 
+  añado un margen y un tamaño concreto dentro del flex*/
+  .navegacion {
+    flex-basis: 20%;
+    margin-bottom: 40px;
+    margin-left: 20px;
+  }
+  
+  .navegacion h4 {
+    margin-bottom: 20px;
+  }
+  
+  .navegacion ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navegacion {
+    line-height: 1.5;
+  }
+  
+  .navegacion a {
+    color: white;
+    text-decoration: none;
+  
+  }
+  
+  .indice-footer :hover {
+    color: red;
+  
+  }
+  
+  /* El CSS de que hacemos que tambien le añado un tamaño de flex concreto*/
+  .Pedidos {
+    flex-basis: 40%;
+    margin-bottom: 40px;
+  }
+  
+  .Pedidos h4 {
+    margin-bottom: 20px;
+  }
+  
+  .Pedidos p {
+    font-size: 14px;
+    text-align: justify;
+  }
+  
+  
+  /* El CSS de datos que tambien le añado un tamaño de flex concreto y un margen entre cada dato*/
+  .datos {
+    flex-basis: 20%;
+    margin-bottom: 40px;
+    margin-right: 20px;
+    line-height: 1.5;
+  }
+  
+  .datos h4 {
+    margin-bottom: 20px;
+  }
+  
+  .datos ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .datos li {
+    color: white;
+    list-style: none;
+  
+  }
+  
+  /* El CSS de los derechos de autor que lo pongo en el centro del footer*/
+  .derechos {
+    margin-top: 25px;
+    text-align: center;
+  }
+  
+  .derechos p {
+    font-size: 14px;
+    margin: 0;
+  }

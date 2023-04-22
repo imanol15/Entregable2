@@ -1,12 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="% static 'pedidos.css'%">
+    <title>{% block titulo %}Gestor de Empleados{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    
+    <header>
+
+        <!--<a class="navbar-brand" href="{%url 'index' %}"><img src="{% static 'foto_logo.png' %}" alt="" id="logo" /></a>-->
+        <nav>
+            <ul class="indice">
+                <li >
+                    <a  href="{%url 'listado_clientes' %}">Listado clientes</a>
+                </li>
+
+                <li >
+                    <a href="{% url 'listado_pedidos'%}">Listado pedidos</a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block contenido %}{% endblock %}
+    </main>
+    <footer>
+
+        <div class="contenedor-footer">
+            <div class="navegacion">
+                <h4>Enlaces</h4>
+                <div class="indice-footer">
+                    <ul>
+                        <li>
+                            <a href="{%url 'listado_clientes' %}">Listado clientes</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'listado_pedidos'%}">Listado pedidos</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="Pedidos">
+                <h4> ¿Que hacemos? </h4>
+                <p>En nuestra empresa de pedidos, nos dedicamos a brindar soluciones eficientes y efectivas para
+                    gestionar los pedidos de nuestros clientes. Ofrecemos un servicio completo que abarca desde la
+                    recepción del pedido hasta su entrega, pasando por la preparación, empaquetado y transporte. Además,
+                    contamos con una plataforma online que permite a nuestros clientes realizar sus pedidos de forma
+                    rápida y sencilla, y realizar un seguimiento del estado de los mismos en tiempo real.</p>
+            </div>
+
+
+            <div class="datos">
+                <h4>Contacto</h4>
+                <ul>
+                    <li> <i class="fa fa-map-marker" aria-hidden="true"> Judizmendi 33 Vitoria, Spain</i></li>
+                    <li><i class="fa fa-phone" aria-hidden="true"> (+34) 945 17 55 33 </i> </li>
+                    <li><i class="fa fa-envelope-o" aria-hidden="true">info@empresa.com</i></li>
+                </ul>
+            </div>
+        </div>
+        <div class="derechos">
+            <p>Derechos de autor © 2023 empresa. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    </footer>
 </body>
+
 </html>
