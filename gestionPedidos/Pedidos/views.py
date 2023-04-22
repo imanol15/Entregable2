@@ -1,10 +1,9 @@
 
-from .models import Producto, Pedido,Componente, Cliente
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
-from django.shortcuts import get_object_or_404, get_list_or_404
-from django.urls import path
-from . import views
-
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from .models import Componente, Producto, Cliente, Pedido
 
 
 class ProductoListView(ListView):
@@ -33,28 +32,103 @@ class ComponenteDetailView(DetailView):
 
 
     
-urlpatterns = [
-    # Paths para vistas utilizando FUNCIONES:
+class ComponenteListView(ListView):
+    model = Componente
+    template_name = 'componente_list.html'
+    context_object_name = 'componentes'
+    paginate_by = 10
 
-    # path('', views.index_departamentos, name='index'),
-    # path('departamentos/<int:departamento_id>/', views.show_departamento, name='detail'),
-    # path('departamentos/<int:departamento_id>/empleados', views.index_empleados, name='empleados'),
-    # path('habilidades/<int:habilidad_id>', views.show_habilidad, name='habilidad'),
-    
-    # Paths para vistas utilizando CLASES:
+class ComponenteDetailView(DetailView):
+    model = Componente
+    template_name = 'componente_detail.html'
 
-    path('', views.DepartamentoListView.as_view(), name='index'),
-    path('departamentos/<int:pk>/', views.DepartamentoDetailView.as_view(), name='detail'),
-    path('departamentos/<int:departamento_id>/empleados', views.EmpleadoListView.as_view(), name='empleados'),
-    path('empleados/<int:pk>', views.EmpleadoDetailView.as_view(), name='empleado'),
-    path('habilidades/<int:pk>', views.HabilidadDetailView.as_view(), name='habilidad'),
+class ComponenteCreateView(CreateView):
+    model = Componente
+    template_name = 'componente_form.html'
+    fields = ['nombre', 'descripcion']
+    success_url = reverse_lazy('componente_list')
 
-    # Paths para crear
-    path('departamentos/create', views.DepartamentoCreateView.as_view(), name='departamento_create'),
-    path('empleados/create', views.EmpleadoCreateView.as_view(), name='empleado_create'),
-]
+class ComponenteUpdateView(UpdateView):
+    model = Componente
+    template_name = 'componente_form.html'
+    fields = ['nombre', 'descripcion']
+    success_url = reverse_lazy('componente_list')
 
-    
+class ComponenteDeleteView(DeleteView):
+    model = Componente
+    template_name = 'componente_confirm_delete.html'
+    success_url = reverse_lazy('componente_list')
 
+class ProductoListView(ListView):
+    model = Producto
+    template_name = 'producto_list.html'
+    context_object_name = 'productos'
+    paginate_by = 10
 
+class ProductoDetailView(DetailView):
+    model = Producto
+    template_name = 'producto_detail.html'
 
+class ProductoCreateView(CreateView):
+    model = Producto
+    template_name = 'producto_form.html'
+    fields = ['nombre', 'precio', 'componentes']
+    success_url = reverse_lazy('producto_list')
+
+class ProductoUpdateView(UpdateView):
+    model = Producto
+    template_name = 'producto_form.html'
+    fields = ['nombre', 'precio', 'componentes']
+    success_url = reverse_lazy('producto_list')
+
+class ProductoDeleteView(DeleteView):
+    model = Producto
+    template_name = 'producto_confirm_delete.html'
+    success_url = reverse_lazy('producto_list')
+
+class ClienteListView(ListView):
+    model = Cliente
+    template_name = 'cliente_list.html'
+    context_object_name = 'clientes'
+    paginate_by = 10
+
+class ClienteDetailView(DetailView):
+    model = Cliente
+    template_name = 'cliente_detail.html'
+
+class ClienteCreateView(CreateView):
+    model = Cliente
+    template_name = 'cliente_form.html'
+    fields = ['nombre', 'email']
+    success_url = reverse_lazy('cliente_list')
+
+class ClienteUpdateView(UpdateView):
+    model = Cliente
+    template_name = 'cliente_form.html'
+    fields = ['nombre', 'email']
+    success_url = reverse_lazy('cliente_list')
+
+class ClienteDeleteView(DeleteView):
+    model = Cliente
+    template_name = 'cliente_confirm_delete.html'
+    success_url = reverse_lazy('cliente_list')
+
+class PedidoListView(ListView):
+    model = Pedido
+    template_name = 'pedido_list.html'
+    context_object_name = 'pedidos'
+    paginate_by = 10
+
+class PedidoDetailView(DetailView):
+    model = Pedido
+    template_name = 'pedido_detail.html'
+
+class PedidoCreateView(CreateView):
+    model = Pedido
+    template_name = 'pedido_form.html'
+    fields = ['cliente', 'productos']
+    success_url = reverse_lazy('pedido_list')
+
+class PedidoUpdateView(UpdateView):
+    model = Pedido
+    template_name = 'pedido'
