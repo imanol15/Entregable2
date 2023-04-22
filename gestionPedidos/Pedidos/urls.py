@@ -1,9 +1,9 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
-    
- 
+     
 
     path('', views.ClienteListView.as_view(), name='listado_clientes'),
     path('cliente/<int:pk>/', views.ClienteDetailView.as_view(), name='detail'),
@@ -15,3 +15,7 @@ urlpatterns = [
     path('clientes/create', views.ClienteCreateView.as_view(), name='cliente_create'),
     path('pedidos/create', views.PedidoCreateView.as_view(), name='pedido_create'),
 ]
+
+
+
+
