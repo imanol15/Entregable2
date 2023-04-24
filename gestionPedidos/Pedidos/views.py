@@ -50,7 +50,7 @@ class ProductoCreateView(View):
             # Volvemos a la lista de departamentos
             return redirect('listado_producto')
 
-        return render(request, 'producto_crete.html', {'formulario': formulario})
+        return render(request, 'producto_create.html', {'formulario': formulario})
 
 class PedidoDetailView(ListView):
     model = Pedido
