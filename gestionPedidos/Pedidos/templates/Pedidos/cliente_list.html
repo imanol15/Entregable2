@@ -3,16 +3,14 @@
 {% block titulo %}Listado de clientes{% endblock %}
 
 {% block contenido %}
-    <h2>Listado de clientes</h2>
-    {% if cliente_list %}
-        <ul>
-        {% for cliente in cliente_list %}
-            <li>
-                <a href="{%url 'listado_clientes' cliente.id %}">{{ cliente.cif}}</a>. Nombre empresa: {{ cliente.nombre_empresa }}
-            </li>
-        {% endfor %}
-        </ul>
-    {% else %}
-    <p>No hay clientes creados.</p>
-    {% endif %}
+<h2>Listado de clientes</h2>
+{% if cliente_list %}
+<ul>
+    {% for cliente in listado_clientes %}
+    <li>{{ cliente.cif }} - {{ cliente.nombre_empresa }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No hay clientes creados.</p>
+{% endif %}
 {% endblock %}

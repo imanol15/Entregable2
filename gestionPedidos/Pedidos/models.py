@@ -42,9 +42,7 @@ class Producto_pedido(models.Model):
     producto_solicitado = models.ForeignKey(Producto, on_delete=models.CASCADE)
     pedido_solicitado = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     precio_total = models.DecimalField(max_digits=10, decimal_places=2)
-#cambiar esto
-    def __str__(self):
-        return self.pedido_solicitado 
+
     
 
 
