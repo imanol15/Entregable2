@@ -127,11 +127,12 @@ class ClienteCreateView(View):
 
 
 # Vista mediante clase: igual que la vista anterior:
-class ClienteListView(View):
-    def get(self, request):
-        clientes = get_list_or_404(Cliente.objects.order_by('cif'))
-        context = {'listado_clientes': clientes }
-        return render(request, 'cliente_list.html', context)
+class ClienteListView(ListView):
+    model = Cliente
+    clientes = Cliente.objects.order_by('cif')
+    template_name= 'cliente_list.html'
+    context = {'listado_clientes': clientes }
+    
 
 # Vista mediante clase: devuelve los datos de un departamento
 class ClienteDetailView(DetailView):
