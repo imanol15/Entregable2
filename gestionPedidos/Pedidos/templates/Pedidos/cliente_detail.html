@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block titulo %} Detalle del cliente {% endblock %}
+
+{% block contenido %}
+<h2>Datos del cliente</h2>
+<a href="{% url 'create_clientes' %}">Crear nuevo ticket</a>
+{% if cliente%}
+    <ul>
+        <li>
+            {{ cliente.cif}}
+        
+        </li>
+        <li>
+            {{ cliente.nombre_empresa}}
+        </li>
+        <li>
+            {{ cliente.direccion}}
+        </li>
+        <li>
+            {{ cliente.datos_contacto}}
+        </li>
+        <li>
+            <a href="%url 'listado_clientes' %">Ver cliente</a>
+        </li>
+    </ul>
+{% else %}
+    <p>No existe este cliente.</p>
+{% endif %}
+
+{% endblock %}

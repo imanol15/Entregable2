@@ -1,10 +1,11 @@
 
 from .models import Producto, Pedido,Componente, Cliente
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.views import View
 from Pedidos.forms import PedidoForm, ClienteForm,ComponenteForm,ProductoForm
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 
 
 
@@ -102,47 +103,44 @@ class PedidoCreateView(View):
     
 
 
+# Creacion de clientes 
+class ClienteCreateView(CreateView):
+     model = Cliente
+     form_class = ClienteForm
+     template_name = 'cliente_create.html'
+     success_url = reverse_lazy('listado_clientes')    
 
-class ClienteCreateView(View):
-    # Llamada para mostrar la página con el formulario de creación al usuario
-    def get(self, request, *args, **kwargs):
-        formulario = ClienteForm()
-        context = {
-            'formulario': formulario
-        }
-        return render(request, 'cliente_create.html', context)
-
-    # Llamada para procesar la creación del departamento
-    def post(self, request, *args, **kwargs):
-        formulario = ClienteForm(request.POST)
-        if formulario.is_valid(): # is_valid() deja los datos validados en el atributo cleaned_data
-       
-            formulario.save()
-
-            # Volvemos a la lista de departamentos
-            return redirect('listado_cliente')
-        # Si los datos no son válidos, mostramos el formulario nuevamente indicando los errores
-        return render(request, 'cliente_create.html', {'formulario': formulario})
+     def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
     
 
 
-# Vista mediante clase: igual que la vista anterior:
+# Listado de Clientes
 class ClienteListView(ListView):
     model = Cliente
-    clientes = Cliente.objects.order_by('cif')
-    template_name= 'cliente_list.html'
-    context = {'listado_clientes': clientes }
-    
+    template_name = 'cliente_list.html'
+    queryset = Cliente.objects.order_by('cif')
+    context_object_name = 'listado_clientes'
 
-# Vista mediante clase: devuelve los datos de un departamento
+# Detalle de cada Cliente
 class ClienteDetailView(DetailView):
-   model = Cliente
+    model = Cliente
+    template_name = 'cliente_detail.html'
 
+class ClienteDeleteView(DeleteView):
+    model = Cliente
+    success_url = reverse_lazy('listado_clientes')
 
+class ClienteUpdateView(UpdateView):
+    model = Cliente
+    template_name = 'cliente_edit.html'
+    success_url = reverse_lazy('listado_clientes')
+    fields = ['cif', 'nombre_empresa', 'direccion', 'datos_contacto']
 
 
 class ComponenteCreateView(View):
-    # Llamada para mostrar la página con el formulario de creación al usuario
+    
     def get(self, request, *args, **kwargs):
         formulario = ComponenteForm()
         context = {
