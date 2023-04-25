@@ -119,9 +119,10 @@ class ClienteCreateView(CreateView):
 # Listado de Clientes
 class ClienteListView(ListView):
     model = Cliente
-    template_name = 'cliente_list.html'
     queryset = Cliente.objects.order_by('cif')
     context_object_name = 'listado_clientes'
+    template_name = 'cliente_list.html'
+    
 
 # Detalle de cada Cliente
 class ClienteDetailView(DetailView):
@@ -131,6 +132,7 @@ class ClienteDetailView(DetailView):
 class ClienteDeleteView(DeleteView):
     model = Cliente
     success_url = reverse_lazy('listado_clientes')
+    template_name = 'cliente_delete.html'
 
 class ClienteUpdateView(UpdateView):
     model = Cliente

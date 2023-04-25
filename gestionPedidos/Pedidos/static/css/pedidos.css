@@ -43,6 +43,7 @@ footer {
   .contenedor-footer {
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
   
   }
   
@@ -129,3 +130,100 @@ footer {
     font-size: 14px;
     margin: 0;
   }
+
+  .empresa-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .form-group input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+  
+  .btn-primary {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0062cc;
+  }
+  .delete-object {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    
+  }
+  
+  .delete-form {
+    width: 400px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+    text-align: center;
+  }
+  
+  .delete-form p {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .btn-delete, .btn-cancel {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .btn-delete {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+  }
+  
+  .btn-cancel {
+    background-color: #ccc;
+    border-color: #ccc;
+    color: #333;
+    margin-left: 10px;
+  }
+  
+  .btn-delete:hover, .btn-cancel:hover {
+    /* Esto hace que los botones sobresalgan*/
+    transform: translateY(-3px);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
