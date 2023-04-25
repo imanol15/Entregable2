@@ -105,12 +105,12 @@ class PedidoCreateView(View):
 
 # Creacion de clientes 
 class ClienteCreateView(CreateView):
-     model = Cliente
-     form_class = ClienteForm
-     template_name = 'cliente_create.html'
-     success_url = reverse_lazy('listado_clientes')    
+    model = Cliente
+    form_class = ClienteForm
+    template_name = 'cliente_create.html'
+    success_url = reverse_lazy('listado_clientes')    
 
-     def form_valid(self, form):
+    def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
     

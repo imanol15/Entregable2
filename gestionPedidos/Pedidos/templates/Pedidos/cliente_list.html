@@ -7,7 +7,7 @@
 <h2>Menu</h2>
 <ul>
 <li>
-    <a href="{% url 'create_clientes' %}">Crear nuevo cliente</a>
+    <a href="{% url 'create_cliente' %}">Crear nuevo cliente</a>
     
 
 </li>
@@ -23,7 +23,7 @@
 <ul>
     {% for cliente in listado_clientes %}
     <li>
-        <a href="{% url 'cliente_detail' pk=cliente.id %}">{{ cliente.cif}}</a>
+        <a href="{% url 'cliente_detail' pk=cliente.id %}">{{ cliente.cif }}</a>
         <a href="{% url 'cliente_delete' pk=cliente.id %}">Borrar</a>
         <a href="{% url 'cliente_edit' pk=cliente.id %}">Editar</a>
 

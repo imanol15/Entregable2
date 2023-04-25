@@ -4,8 +4,8 @@
 
 {% block contenido %}
 <h2>Datos del cliente</h2>
-<a href="{% url 'create_clientes' %}">Crear nuevo ticket</a>
-{% if cliente%}
+<a href="{% url 'create_cliente' %}">Crear nuevo cliente</a>
+{% if cliente %}
     <ul>
         <li>
             {{ cliente.cif}}
@@ -21,7 +21,7 @@
             {{ cliente.datos_contacto}}
         </li>
         <li>
-            <a href="%url 'listado_clientes' %">Ver cliente</a>
+            <a href="% url 'listado_clientes' %">Ver cliente</a>
         </li>
     </ul>
 {% else %}

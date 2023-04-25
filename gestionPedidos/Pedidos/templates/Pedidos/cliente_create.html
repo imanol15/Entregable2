@@ -5,7 +5,7 @@
 {% block contenido %}
 <h2>Nuevo cliente</h2>
 
-<form action="{% url 'cliente_create' %}" method="post">
+<form action="{% url 'create_cliente' %}" method="post">
     {% csrf_token %}
     {{ formulario.errors }}
     {{ formulario.as_ul }}
