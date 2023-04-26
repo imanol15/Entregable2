@@ -3,34 +3,53 @@
 {% block titulo %}Listado de clientes{% endblock %}
 
 {% block contenido %}
-
-<h2>Menu</h2>
-<ul>
-    <li>
-        <a href="{% url 'create_cliente' %}">Crear nuevo cliente</a>
-
-
-    </li>
-    <li>
-        <a href="{% url 'listado_clientes' %}">Listado cliente</a>
+<div class="menu-titulo">
+    <h1>Menu</h1>
+</div>
+    <div class="menu-contenido">
+        <ul>
+            <li>
+                <a href="{% url 'create_cliente' %}">Crear nuevo cliente</a>
 
 
-    </li>
+            </li>
+            <li>
+                <a href="{% url 'listado_clientes' %}">Listado cliente</a>
+            </li>
 
-</ul>
-<h2>Listado de Clientes </h2>
-{% if listado_clientes %}
-<ul>
-    {% for cliente in listado_clientes %}
-    <li>
-        <a href="{% url 'cliente_detail' pk=cliente.id %}">{{ cliente.cif }}</a>
-        <a href="{% url 'cliente_delete' pk=cliente.id %}">Borrar</a>
-        <a href="{% url 'cliente_edit' pk=cliente.id %}">Editar</a>
+        </ul>
+    </div>
+    <div class="cliente-header">
+        <h1>Listado del Cliente</h1>
+    </div>
+    <div class="cliente-tabla">
+        {% if listado_clientes %}
+        <table>
+            <thead>
+                <tr>
 
-    </li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No hay clientes creados.</p>
-{% endif %}
-{% endblock %}
+                    <th>ID</th>
+                    <th>CIF</th>
+                    <th>Ver Detalle</th>
+
+
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for cliente in listado_clientes %}
+                <tr>
+
+                    <td>{{ cliente.id }}</td>
+                    <td>{{ cliente.cif }}</td>
+                    <td><a href="{% url 'cliente_detail' pk=cliente.id %}">Detalle</a></td>
+                    {% endfor %}
+                </tr>
+
+                {% else %}
+                <p>No hay clientes creados.</p>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}

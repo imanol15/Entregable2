@@ -226,4 +226,78 @@ footer {
     transform: translateY(-3px);
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   }
+
+  /* Estilos para la tabla */
+  .cliente-header {
+    margin-bottom: 20px;
+  }
   
+  .cliente-tabla {
+    width: 100%;
+  border-collapse: collapse;
+  }
+  
+  .cliente-tabla th, .cliente-tabla td {
+    padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  }
+  
+  .cliente-tabla th {
+    background-color: #f2f2f2;
+  }
+  
+  .cliente-tabla a {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+  
+  
+  .cliente-tabla a:hover {
+    background-color: #3ca040;
+  }
+
+  /* Estilos para el título "Menu" */
+.menu-titulo h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para el contenedor principal del menú */
+.menu-titulo, .menu-contenido {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para el título "Menu" */
+.menu-titulo h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para los enlaces del menú */
+.menu-contenido ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-contenido li a {
+  display: block;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  
+}
+
+/* Estilos para los enlaces del menú al pasar el mouse */
+.menu-contenido li a:hover {
+  background-color: #ddd;
+}

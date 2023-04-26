@@ -1,31 +1,41 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
 {% block titulo %} Detalle del cliente {% endblock %}
 
 {% block contenido %}
-<h2>Datos del cliente</h2>
-<a href="{% url 'create_cliente' %}">Crear nuevo cliente</a>
-{% if cliente %}
-    <ul>
-        <li>
-            {{ cliente.cif}}
-        
-        </li>
-        <li>
-            {{ cliente.nombre_empresa}}
-        </li>
-        <li>
-            {{ cliente.direccion}}
-        </li>
-        <li>
-            {{ cliente.datos_contacto}}
-        </li>
-        <li>
-            <a href="{% url 'listado_clientes' %}">Ver cliente</a>
-        </li>
-    </ul>
-{% else %}
-    <p>No existe este cliente.</p>
-{% endif %}
+<div class="cliente-header">
+    <h1>Detalle del Cliente</h1>
+</div>
+<div class="cliente-tabla">
+    <table>
+        <thead>
+            <tr>
 
+                <th>ID</th>
+                <th>CIF</th>
+                <th>Nombre de empresa</th>
+                <th>Dirección</th>
+                <th>Datos de contacto</th>
+                <th>Borrar</th>
+                <th>Editar</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% if cliente %}
+
+            <tr>
+                <td>{{ cliente.id }}</td>
+                <td>{{ cliente.cif }}</td>
+                <td>{{ cliente.nombre_empresa }}</td>
+                <td>{{ cliente.direccion }}</td>
+                <td>{{ cliente.datos_contacto }}</td>
+                <td><a href="{% url 'cliente_delete' pk=cliente.id %}">Borrar</a></td>
+                <td><a href="{% url 'cliente_edit' pk=cliente.id %}">Editar</a></td>
+
+            </tr>
+
+            {% endif %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
