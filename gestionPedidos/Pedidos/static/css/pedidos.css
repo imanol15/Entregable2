@@ -301,3 +301,38 @@ footer {
 .menu-contenido li a:hover {
   background-color: #ddd;
 }
+
+/*Estilo tabla de los pedidos */
+.pedido-header {
+  margin-bottom: 20px;
+}
+
+.pedido-tabla {
+  width: 100%;
+border-collapse: collapse;
+}
+
+.pedido-tabla th, .pedido-tabla td {
+  padding: 10px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+
+.pedido-tabla th {
+  background-color: #f2f2f2;
+}
+
+.pedido-tabla a {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+
+.pedido-tabla a:hover {
+  background-color: #3ca040;
+}

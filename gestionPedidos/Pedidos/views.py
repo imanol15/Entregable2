@@ -53,54 +53,42 @@ class ProductoCreateView(View):
 
         return render(request, 'producto_create.html', {'formulario': formulario})
 
-class PedidoDetailView(ListView):
+# Detalle de Pedidos
+class PedidoDetailView(DetailView):
     model = Pedido
+    template_name = 'pedido_detail.html'
 
-class PedidoListView(DetailView):
+# Listado de Pedidos
+class PedidoListView(ListView):
     model = Pedido
-    context_object_name='pedidos'
-    def get_queryset(self):
-        self.cliente = get_object_or_404(Cliente,  pk=self.kwargs['cliente_id'])
-        return Pedido.objects.filter(Cliente=self.cliente)
-        
-        
+    queryset = Pedido.objects.order_by('codigo_referencia')
+    context_object_name = 'listado_pedidos'
+    template_name = 'pedido_list.html'
     
-    def get_context_data(self, **kwargs):
-        # En primer lugar cogemos el contexto existente en la implementación base
-        context = super().get_context_data(**kwargs)
-        # En segundo lugar añadimos la información que queramos al contexto
-        cliente = get_object_or_404(Cliente, pk=self.kwargs['cliente_id'])
-        context['cliente'] = cliente
-        # Ejemplo de cómo añadir otra variable más al contexto de la template
-        # usuario_conectado = 'Jaime Urrutia '
-        # context['usuario_conectado'] = usuario_conectado
-        return context
     
-class PedidoCreateView(View):
-    # Llamada para mostrar la página con el formulario de creación
-    def get(self, request, *args, **kwargs):
-        formulario = PedidoForm()
-        context = {
-            'formulario': formulario
-        }
-        return render(request, 'pedido_create.html', context)
+#Creacion Pedidos
+class PedidoCreateView(CreateView):
+    model = Pedido
+    form_class = PedidoForm
+    template_name = 'pedido_create.html'
+    success_url = reverse_lazy('listado_pedidos')    
 
-    # Llamada para procesar la creación del empleado
-    def post(self, request, *args, **kwargs):
-        formulario = PedidoForm(request.POST)
-        if formulario.is_valid():
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+#Borrado de los pedidos
+class PedidoDeleteView(DeleteView):
+    model = Pedido
+    success_url = reverse_lazy('listado_pedidos')
+    template_name = 'pedido_delete.html'
+#Actualizar pedidos
+class PedidoUpdateView(UpdateView):
+    model = Pedido
+    template_name = 'pedido_edit.html'
+    success_url = reverse_lazy('listado_pedidos')
+    fields = ['codigo_referencia', 'fecha', 'cliente', 'cantidad']
 
-            formulario.save()
 
-            # Volvemos a la lista de departamentos
-            return redirect('listado_clientes')
-
-        return render(request, 'pedido_create.html', {'formulario': formulario})
-
-
-
-
-    
 
 
 # Creacion de clientes 

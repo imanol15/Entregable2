@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block titulo %}Listado de pedidos{% endblock %}
+
+{% block contenido %}
+<div class="menu-titulo">
+    <h1>Menu</h1>
+</div>
+    <div class="menu-contenido">
+        <ul>
+            <li>
+                <a href="{% url 'pedido_create' %}">Crear nuevo pedido</a>
+
+
+            </li>
+            <li>
+                <a href="{% url 'listado_pedidos' %}">Listado pedido</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="pedido-header">
+        <h1>Listado del Pedidos</h1>
+    </div>
+    <div class="pedido-tabla">
+        {% if listado_pedidos %}
+        <table>
+            <thead>
+                <tr>
+
+                    <th>ID</th>
+                    <th>Codigo Referencia</th>
+                    <th>Ver Detalle</th>
+
+
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for pedido in listado_pedidos %}
+                <tr>
+
+                    <td>{{ pedido.id }}</td>
+                    <td>{{ pedido.codigo_referencia }}</td>
+                    <td><a href="{% url 'pedido_detail' pk=pedido.id %}">Detalle</a></td>
+                    {% endfor %}
+                </tr>
+
+                {% else %}
+                <p>No hay pedidos creados.</p>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}
