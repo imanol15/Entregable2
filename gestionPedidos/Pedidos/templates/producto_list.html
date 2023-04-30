@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block titulo %}Listado de productos{% endblock %}
+
+{% block contenido %}
+<div class="menu-titulo">
+    <h1>Menu</h1>
+</div>
+    <div class="menu-contenido">
+        <ul>
+            <li>
+                <a href="{% url 'producto_create' %}">Crear nuevo producto</a>
+
+
+            </li>
+            <li>
+                <a href="{% url 'listado_productos' %}">Listado producto</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="pedido-header">
+        <h1>Listado del Productos</h1>
+    </div>
+    <div class="pedido-tabla">
+        {% if listado_productos %}
+        <table>
+            <thead>
+                <tr>
+
+                    <th>ID</th>
+                    <th>Codigo Referencia</th>
+                    <th>Ver Detalle</th>
+
+
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for producto in listado_productos %}
+                <tr>
+
+                    <td>{{ producto.id }}</td>
+                    <td>{{ producto.referencia }}</td>
+                    <td><a href="{% url 'producto_detail' pk=producto.id %}">Detalle</a></td>
+                    {% endfor %}
+                </tr>
+
+                {% else %}
+                <p>No hay productos creados.</p>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}

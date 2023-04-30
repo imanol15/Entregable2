@@ -22,14 +22,15 @@ urlpatterns = [
     path('componentes/create/', views.ComponenteCreateView.as_view(), name='componente_create'),
     path('componentes/<int:pk>/borrar/', views.ComponenteDeleteView.as_view(), name='componente_delete'),
     path('componentes/<int:pk>/editar/', views.ComponenteUpdateView.as_view(), name='componente_edit'),
-
+    #Urls de producto
+    path('productos/', views.ProductoListView.as_view(), name='listado_productos'),
+    path('productos/<int:pk>', views.ProductoDetailView.as_view(), name='producto_detail'),
+    path('productos/create/', views.ProductoCreateView.as_view(), name='producto_create'),
+    path('productos/<int:pk>/borrar/', views.ProductoDeleteView.as_view(), name='producto_delete'),
+    path('productos/<int:pk>/editar/', views.ProductoUpdateView.as_view(), name='producto_edit'),
    
    
-    path('componente/<int:componente>/producto', views.ProductoListView.as_view(), name='listado_producto'),
-    path('producto/<int:pk>', views.ProductoDetailView.as_view(), name='producto'),
-
-
-    path('componente/<int:pk>/', views.ComponenteDetailView.as_view(), name='detail_componente'),
+   
 
 
 

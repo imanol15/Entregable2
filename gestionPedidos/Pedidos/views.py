@@ -8,51 +8,6 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
 
-
-class ProductoDetailView(ListView):
-    model = Producto
-
-class ProductoListView(DetailView):
-    model = Producto
-    context_object_name='productos'
-    def get_queryset(self):
-        self.componente = get_object_or_404(Componente,  pk=self.kwargs['Cmponente_id'])
-        return Componente.objects.filter(Componente=self.componente)
-        
-        
-    
-    def get_context_data(self, **kwargs):
-        # En primer lugar cogemos el contexto existente en la implementación base
-        context = super().get_context_data(**kwargs)
-        # En segundo lugar añadimos la información que queramos al contexto
-        componente = get_object_or_404(Componente, pk=self.kwargs['componente_id'])
-        context['componente'] = componente
-        # Ejemplo de cómo añadir otra variable más al contexto de la template
-        # usuario_conectado = 'Jaime Urrutia '
-        # context['usuario_conectado'] = usuario_conectado
-        return context
-    
-class ProductoCreateView(View):
-    # Llamada para mostrar la página con el formulario de creación
-    def get(self, request, *args, **kwargs):
-        formulario = ProductoForm()
-        context = {
-            'formulario': formulario
-        }
-        return render(request, 'producto_create.html', context)
-
-    # Llamada para procesar la creación del empleado
-    def post(self, request, *args, **kwargs):
-        formulario = ProductoForm(request.POST)
-        if formulario.is_valid():
-
-            formulario.save()
-
-            # Volvemos a la lista de departamentos
-            return redirect('listado_producto')
-
-        return render(request, 'producto_create.html', {'formulario': formulario})
-
 # Detalle de Pedidos
 class PedidoDetailView(DetailView):
     model = Pedido
@@ -167,5 +122,42 @@ class ComponenteUpdateView(UpdateView):
     success_url = reverse_lazy('listado_componentes')
     fields = ['  componentes_codigo_referencia ', ' nombre_modelo', ' marca']
 
+
+
+
+# Detalle de productos
+class ProductoDetailView(DetailView):
+    model = Producto
+    template_name = 'producto_detail.html'
+
+# Listado de Productos
+class ProductoListView(ListView):
+    model = Producto
+    queryset = Producto.objects.order_by('referencia')
+    context_object_name = 'listado_productos'
+    template_name = 'producto_list.html'
+    
+    
+#Creacion Productos
+class ProductoCreateView(CreateView):
+    model = Producto
+    form_class = ProductoForm
+    template_name = 'producto_create.html'
+    success_url = reverse_lazy('listado_productos')    
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+#Borrado de los Productos
+class ProductoDeleteView(DeleteView):
+    model = Producto
+    success_url = reverse_lazy('listado_productos')
+    template_name = 'producto_delete.html'
+#Actualizar productos
+class ProductoUpdateView(UpdateView):
+    model = Producto
+    template_name = 'producto_edit.html'
+    success_url = reverse_lazy('listado_productos')
+    fields = ['referencia', 'precio', 'nombre', 'descripcion','categoria','componentes']
 
 
