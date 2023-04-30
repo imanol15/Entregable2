@@ -14,7 +14,6 @@
                 <th>Codigo Referencia</th>
                 <th>Modelo</th>
                 <th>Marca</th>
-                <th>Cantidad</th>
                 <th>Borrar</th>
                 <th>Editar</th>
 
@@ -28,7 +27,6 @@
                 <td>{{ componente.componentes_codigo_referencia }}</td>
                 <td>{{ componente. nombre_modelo }}</td>
                 <td>{{ componente.marca}}</td>
-                <td>{{ componente.cantidad}}</td>
                 <td><a href="{% url 'componente_delete' pk=componente.id %}">Borrar</a></td>
                 <td><a href="{% url 'componente_edit' pk=componente.id %}">Editar</a></td>
 
