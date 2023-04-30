@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block titulo %}Listado de componentes{% endblock %}
+
+{% block contenido %}
+<div class="menu-titulo">
+    <h1>Menu</h1>
+</div>
+    <div class="menu-contenido">
+        <ul>
+            <li>
+                <a href="{% url 'componente_create' %}">Crear nuevo componente</a>
+
+
+            </li>
+            <li>
+                <a href="{% url 'listado_componentes' %}">Listado componentes</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="componente-header">
+        <h1>Listado del Componentes</h1>
+    </div>
+    <div class="componente-tabla">
+        {% if listado_componentes %}
+        <table>
+            <thead>
+                <tr>
+
+                    <th>ID</th>
+                    <th>Codigo Referencia</th>
+                    <th>Ver Detalle</th>
+
+
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for componente in listado_componentes %}
+                <tr>
+
+                    <td>{{ componente.id }}</td>
+                    <td>{{ componente.componentes_codigo_referencia }}</td>
+                    <td><a href="{% url 'componente_detail' pk=componente.id %}">Detalle</a></td>
+                    {% endfor %}
+                </tr>
+
+                {% else %}
+                <p>No hay componentes creados.</p>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}
