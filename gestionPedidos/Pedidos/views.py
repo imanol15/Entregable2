@@ -120,7 +120,7 @@ class ComponenteUpdateView(UpdateView):
     model = Componente
     template_name = 'componente_edit.html'
     success_url = reverse_lazy('listado_componentes')
-    fields = ['  componentes_codigo_referencia ', ' nombre_modelo', ' marca']
+    fields = ['componentes_codigo_referencia', 'nombre_modelo', 'marca']
 
 
 
