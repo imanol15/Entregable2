@@ -16,12 +16,19 @@ urlpatterns = [
     path('pedidos/create/', views.PedidoCreateView.as_view(), name='pedido_create'),
     path('pedidos/<int:pk>/borrar/', views.PedidoDeleteView.as_view(), name='pedido_delete'),
     path('pedidos/<int:pk>/editar/', views.PedidoUpdateView.as_view(), name='pedido_edit'),
+    #Urls de componente
+    path('componentes/', views.ComponenteListView.as_view(), name='listado_componentes'),
+    path('componentes/<int:pk>', views.ComponenteDetailView.as_view(), name='componente_detail'),
+    path('componentes/create/', views.ComponenteCreateView.as_view(), name='componente_create'),
+    path('componentes/<int:pk>/borrar/', views.ComponenteDeleteView.as_view(), name='componente_delete'),
+    path('componentes/<int:pk>/editar/', views.ComponenteUpdateView.as_view(), name='componente_edit'),
+
    
    
     path('componente/<int:componente>/producto', views.ProductoListView.as_view(), name='listado_producto'),
     path('producto/<int:pk>', views.ProductoDetailView.as_view(), name='producto'),
 
-    path('componente/', views.ComponenteListView.as_view(), name='listado_componente'),
+
     path('componente/<int:pk>/', views.ComponenteDetailView.as_view(), name='detail_componente'),
 
 

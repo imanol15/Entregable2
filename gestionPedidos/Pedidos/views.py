@@ -128,37 +128,44 @@ class ClienteUpdateView(UpdateView):
     success_url = reverse_lazy('listado_clientes')
     fields = ['cif', 'nombre_empresa', 'direccion', 'datos_contacto']
 
+   
+   
+# Creacion de clientes 
+class ComponenteCreateView(CreateView):
+    model = Componente
+    form_class = ComponenteForm
+    template_name = 'componente_create.html'
+    success_url = reverse_lazy('listado_componentes')    
 
-class ComponenteCreateView(View):
-    
-    def get(self, request, *args, **kwargs):
-        formulario = ComponenteForm()
-        context = {
-            'formulario': formulario
-        }
-        return render(request, 'componente_create.html', context)
-
-    # Llamada para procesar la creación del departamento
-    def post(self, request, *args, **kwargs):
-        formulario = ComponenteForm(request.POST)
-        if formulario.is_valid(): # is_valid() deja los datos validados en el atributo cleaned_data
-       
-            formulario.save()
-
-            # Volvemos a la lista de departamentos
-            return redirect('listado_componentes')
-        # Si los datos no son válidos, mostramos el formulario nuevamente indicando los errores
-        return render(request, 'componente_create.html', {'formulario': formulario})
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
     
 
 
-# Vista mediante clase: igual que la vista anterior:
-class ComponenteListView(View):
-    def get(self, request):
-        componentes = get_list_or_404(Componente.objects.order_by('componentes_codigo_referencia'))
-        context = {'listado_componentes': componentes }
-        return render(request, 'componente_list.html', context)
+# Listado de Componente
+class ComponenteListView(ListView):
+    model = Componente
+    queryset = Componente.objects.order_by('componentes_codigo_referencia')
+    context_object_name = 'listado_componentes'
+    template_name = 'componente_list.html'
+    
 
-# Vista mediante clase: devuelve los datos de un departamento
+# Detalle de cada Componente
 class ComponenteDetailView(DetailView):
-   model = Componente
+    model = Componente
+    template_name = 'componente_detail.html'
+
+class ComponenteDeleteView(DeleteView):
+    model = Componente
+    success_url = reverse_lazy('listado_componente')
+    template_name = 'componente_delete.html'
+
+class ComponenteUpdateView(UpdateView):
+    model = Componente
+    template_name = 'componente_edit.html'
+    success_url = reverse_lazy('listado_componentes')
+    fields = ['  componentes_codigo_referencia ', ' nombre_modelo', ' marca']
+
+
+

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block titulo %} Creacion de componente {% endblock %}
+{% block contenido %}
+<div class="container">
+    <h1>Crear componente</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.componentes_codigo_referencia.label_tag }}
+            {{ form.cif }}
+        </div>
+        <div class="form-group">
+            {{ form.nombre_modelo.label_tag }}
+            {{ form.nombre_empresa }}
+        </div>
+        <div class="form-group">
+            {{ form.marca.label_tag }}
+            {{ form.direccion }}
+        </div>
+        <button type="submit" class="btn btn-primary">Crear</button>
+    </form>
+</div>
+{% endblock %}

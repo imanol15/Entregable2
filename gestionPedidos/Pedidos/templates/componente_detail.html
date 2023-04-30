@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block titulo %} Detalle del componente {% endblock %}
+
+{% block contenido %}
+<div class="componente-header">
+    <h1>Detalle del componente</h1>
+</div>
+<div class="componente-tabla">
+    <table>
+        <thead>
+            <tr>
+
+                <th>ID</th>
+                <th>Codigo Referencia</th>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Cantidad</th>
+                <th>Borrar</th>
+                <th>Editar</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% if componente %}
+
+            <tr>
+                <td>{{ componente.id }}</td>
+                <td>{{ componente.componentes_codigo_referencia }}</td>
+                <td>{{ componente.modelo }}</td>
+                <td>{{ componente.pedido}}</td>
+                <td>{{ componente.cantidad}}</td>
+                <td><a href="{% url 'componente_delete' pk=componente.id %}">Borrar</a></td>
+                <td><a href="{% url 'componente_edit' pk=componente.id %}">Editar</a></td>
+
+            </tr>
+
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
