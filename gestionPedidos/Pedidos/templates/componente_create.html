@@ -7,15 +7,15 @@
         {% csrf_token %}
         <div class="form-group">
             {{ form.componentes_codigo_referencia.label_tag }}
-            {{ form.cif }}
+            {{ form.componentes_codigo_referencia }}
         </div>
         <div class="form-group">
             {{ form.nombre_modelo.label_tag }}
-            {{ form.nombre_empresa }}
+            {{ form.nombre_modelo }}
         </div>
         <div class="form-group">
             {{ form.marca.label_tag }}
-            {{ form.direccion }}
+            {{ form.marca }}
         </div>
         <button type="submit" class="btn btn-primary">Crear</button>
     </form>
