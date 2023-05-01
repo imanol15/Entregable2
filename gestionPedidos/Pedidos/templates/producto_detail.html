@@ -3,47 +3,47 @@
 
 {% block contenido %}
 <div class="menu">
-    
-<div class="listado-header">
-    <h1>Detalle del producto</h1>
-</div>
-<div class="listado-tabla">
-    <table>
-        <thead>
-            <tr>
 
-                <th>ID</th>
-                <th>Referencia</th>
-                <th>Precio</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Categoria</th>
-                <th>Componentes</th>
-                <th>Borrar</th>
-                <th>Editar</th>
+    <div class="listado-header">
+        <h1>Detalle del producto</h1>
+    </div>
+    <div class="listado-tabla">
+        <table>
+            <thead>
+                <tr>
+
+                    <th>ID</th>
+                    <th>Referencia</th>
+                    <th>Precio</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Categoria</th>
+                    <th>Componentes</th>
+                    <th>Borrar</th>
+                    <th>Editar</th>
 
 
-            </tr>
-        </thead>
-        <tbody>
-            {% if producto %}
+                </tr>
+            </thead>
+            <tbody>
+                {% if producto %}
 
-            <tr>
-                <td>{{ producto.id }}</td>
-                <td>{{ producto.referencia }}</td>
-                <td>{{ producto.precio }}</td>
-                <td>{{ producto.nombre}}</td>
-                <td>{{ producto.descripcion}}</td>
-                <td>{{ producto.categoria}}</td>
-                <td>{{ producto.componentes}}</td>
-                <td><a href="{% url 'producto_delete' pk=producto.id %}">Borrar</a></td>
-                <td><a href="{% url 'producto_edit' pk=producto.id %}">Editar</a></td>
+                <tr>
+                    <td>{{ producto.id }}</td>
+                    <td>{{ producto.referencia }}</td>
+                    <td>{{ producto.precio }}</td>
+                    <td>{{ producto.nombre}}</td>
+                    <td>{{ producto.descripcion}}</td>
+                    <td>{{ producto.categoria}}</td>
+                    <td>{{ producto.componentes}}</td>
+                    <td><a href="{% url 'producto_delete' pk=producto.id %}">Borrar</a></td>
+                    <td><a href="{% url 'producto_edit' pk=producto.id %}">Editar</a></td>
 
-            </tr>
+                </tr>
 
-            {% endif %}
-        </tbody>
-    </table>
-</div>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

@@ -10,7 +10,7 @@
         <table>
             <thead>
                 <tr>
-    
+
                     <th>ID</th>
                     <th>Codigo Referencia</th>
                     <th>Fecha</th>
@@ -18,12 +18,12 @@
                     <th>Cantidad</th>
                     <th>Borrar</th>
                     <th>Editar</th>
-    
+
                 </tr>
             </thead>
             <tbody>
                 {% if pedido %}
-    
+
                 <tr>
                     <td>{{ pedido.id }}</td>
                     <td>{{ pedido.codigo_referencia }}</td>
@@ -32,9 +32,9 @@
                     <td>{{ pedido.cantidad}}</td>
                     <td><a href="{% url 'pedido_delete' pk=pedido.id %}">Borrar</a></td>
                     <td><a href="{% url 'pedido_edit' pk=pedido.id %}">Editar</a></td>
-    
+
                 </tr>
-    
+
                 {% endif %}
             </tbody>
         </table>

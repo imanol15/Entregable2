@@ -1,27 +1,27 @@
 {% extends 'base.html' %}
 {% block titulo %} Creacion del cliente {% endblock %}
 {% block contenido %}
-  <div class="container">
-    <h1>Crear Cliente</h1>
-    <form method="post">
-      {% csrf_token %}
-      <div class="form-group">
-        {{ form.cif.label_tag }}
-        {{ form.cif }}
-      </div>
-      <div class="form-group">
-        {{ form.nombre_empresa.label_tag }}
-        {{ form.nombre_empresa }}
-      </div>
-      <div class="form-group">
-        {{ form.direccion.label_tag }}
-        {{ form.direccion }}
-      </div>
-      <div class="form-group">
-        {{ form.datos_contacto.label_tag }}
-        {{ form.datos_contacto }}
-      </div>
-      <button type="submit" class="btn btn-primary">Crear</button>
-    </form>
-  </div>
+<div class="container">
+  <h1>Crear Cliente</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.cif.label_tag }}
+      {{ form.cif }}
+    </div>
+    <div class="form-group">
+      {{ form.nombre_empresa.label_tag }}
+      {{ form.nombre_empresa }}
+    </div>
+    <div class="form-group">
+      {{ form.direccion.label_tag }}
+      {{ form.direccion }}
+    </div>
+    <div class="form-group">
+      {{ form.datos_contacto.label_tag }}
+      {{ form.datos_contacto }}
+    </div>
+    <button type="submit" class="btn btn-primary">Crear</button>
+  </form>
+</div>
 {% endblock %}
