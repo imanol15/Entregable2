@@ -36,18 +36,7 @@ urlpatterns = [
     path('precios/<int:pk>', views.PrecioDetailView.as_view(), name='precio_detail'),
     path('precios/create/', views.PrecioCreateView.as_view(), name='precio_create'),
     path('precios/<int:pk>/borrar/', views.PrecioDeleteView.as_view(), name='precio_delete'),
-    path('precios/<int:pk>/editar/', views.PrecioUpdateView.as_view(), name='precio_edit'),
-   
-   
-   
-
-
-
-    
-    
-   
-
-    
+    path('precios/<int:pk>/editar/', views.PrecioUpdateView.as_view(), name='precio_edit'),  
 ]
 
 

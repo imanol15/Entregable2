@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %}{% load static %}
 {% block titulo %} index {% endblock %}
 
 {% block contenido %}
@@ -24,11 +24,15 @@
                 de que la aplicación cumpla con sus requisitos y objetivos.</p>
         </div>
         <div class="imagen">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.8018063686654!2d-2.6595286000000002!3d42.8559179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fc25f69159117%3A0x95392a3a64869527!2sC.%20Madrid%2C%2050%2C%2001002%20Vitoria-Gasteiz%2C%20%C3%81lava!5e0!3m2!1ses!2ses!4v1682942833751!5m2!1ses!2ses"
-                width="455" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe></iframe>
+            <img src="{% static 'imagenes/componente.jpg'%}" alt="foto componentes"
+                        width="455" height="350">
         </div>
+    </div>
+    <div class="imagen-mapa">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.8018063686654!2d-2.6595286000000002!3d42.8559179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fc25f69159117%3A0x95392a3a64869527!2sC.%20Madrid%2C%2050%2C%2001002%20Vitoria-Gasteiz%2C%20%C3%81lava!5e0!3m2!1ses!2ses!4v1682942833751!5m2!1ses!2ses"
+            width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe></iframe>
     </div>
 </article>
 {% endblock %}

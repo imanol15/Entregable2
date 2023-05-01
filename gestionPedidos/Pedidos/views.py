@@ -178,7 +178,7 @@ class PrecioListView(ListView):
 class PrecioCreateView(CreateView):
     model = Producto_pedido
     form_class = Producto_pedidoForm
-    template_name = 'producto_create.html'
+    template_name = 'precio_create.html'
     success_url = reverse_lazy('listado_precios')    
 
     def form_valid(self, form):

@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block titulo %} Creacion de los precios {% endblock %}
 {% block contenido %}
-  <div class="container">
-    <h1>Crear precio</h1>
+<div class="container">
+  <h1>Crear precio</h1>
 
-<form method="post">
+  <form method="post">
     {% csrf_token %}
     <div class="form-group">
       {{ form.producto_solicitado.label_tag }}
