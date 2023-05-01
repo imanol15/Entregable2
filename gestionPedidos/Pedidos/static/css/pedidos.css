@@ -500,6 +500,7 @@ footer {
   /* He puesto un order para que aparezca primero el texto y luego la foto*/
   .imagen {
     order: -1;
+    margin-left: 30px;
 
   }
 
