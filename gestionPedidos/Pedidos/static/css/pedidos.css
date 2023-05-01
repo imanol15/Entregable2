@@ -426,13 +426,13 @@ footer {
 
 
 
-.container{
+.container {
 
   margin-top: 150px;
   margin-left: 30px;
 }
 
-.borrar{
+.borrar {
 
   margin-top: 150px;
   margin-left: 460px;
@@ -473,39 +473,58 @@ footer {
   line-height: 1.5;
   text-align: justify;
 }
-.imagen-mapa{
-  
+
+.imagen-mapa {
+
   margin-right: 300px;
   margin-left: 330px;
   margin-top: 35px;
 
 }
-.imagen-mapa img{
+
+.imagen-mapa img {
   max-width: 100%;
 }
+
 /* ejemplo de tamaño de pantalla*/
 @media (max-width: 600px) {
 
-/* He cambiado que la foto aparezca debajo del texto de que ofrecemos*/
-.que-ofrecemos {
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  border: 3px grey solid;
-  padding: 10px;
-}
+  /* He cambiado que la foto aparezca debajo del texto de que ofrecemos*/
+  .que-ofrecemos {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    border: 3px grey solid;
+    padding: 10px;
+  }
 
-/* He puesto un order para que aparezca primero el texto y luego la foto*/
-.imagen {
-  order: -1;
-  
-}
+  /* He puesto un order para que aparezca primero el texto y luego la foto*/
+  .imagen {
+    order: -1;
 
-.texto {
-  order: -2;
-}
-.imagen-mapa{
-  margin-left: 30px;
-  margin-right: 30px;
-}
+  }
+
+  .texto {
+    order: -2;
+  }
+
+  .imagen-mapa {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    margin-bottom: 30px;
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .red-social {
+    margin-top: 20px;
+  }
 }
