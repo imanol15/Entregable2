@@ -475,16 +475,11 @@ footer {
 }
 
 .imagen-mapa {
-
-  margin-right: 300px;
-  margin-left: 330px;
+  margin-left: 430px;
   margin-top: 35px;
 
 }
 
-.imagen-mapa img {
-  max-width: 100%;
-}
 
 /* ejemplo de tamaño de pantalla*/
 @media (max-width: 600px) {

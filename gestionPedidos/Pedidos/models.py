@@ -10,6 +10,7 @@ class Componente(models.Model):
         return self.nombre_modelo
 
 
+# Clase producto
 class Producto(models.Model):
     referencia = models.CharField(max_length=50, unique=True)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
@@ -20,6 +21,8 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
     
+
+#Clase cliente    
 class Cliente(models.Model):
     cif = models.CharField(max_length=50)
     nombre_empresa = models.CharField(max_length=100)
@@ -29,6 +32,7 @@ class Cliente(models.Model):
         return self.nombre_empresa
     
 
+#Clase pedido
 class Pedido(models.Model):
     codigo_referencia = models.CharField(max_length=50, unique=True)
     fecha = models.DateField()
