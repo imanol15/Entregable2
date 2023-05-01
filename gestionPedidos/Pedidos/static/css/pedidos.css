@@ -450,11 +450,15 @@ footer {
   flex-basis: 40%;
   margin-right: 30px;
   margin-top: 35px;
+  transition: transform 0.3s ease-out;
 }
 
 .imagen img {
 
   max-width: 100%;
+}
+.imagen img:hover {
+  transform: scale(1.1);
 }
 
 .texto {
