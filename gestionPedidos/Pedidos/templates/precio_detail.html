@@ -3,41 +3,41 @@
 
 {% block contenido %}
 <div class="menu">
-    
-<div class="listado-header">
-    <h1>Detalle del precio</h1>
-</div>
-<div class="listado-tabla">
-    <table>
-        <thead>
-            <tr>
 
-                <th>ID</th>
-                <th>Producto solicitado</th>
-                <th>Pedido solicitado</th>
-                <th>Precio total</th>
-                <th>Borrar</th>
-                <th>Editar</th>
+    <div class="listado-header">
+        <h1>Detalle del precio</h1>
+    </div>
+    <div class="listado-tabla">
+        <table>
+            <thead>
+                <tr>
+
+                    <th>ID</th>
+                    <th>Producto solicitado</th>
+                    <th>Pedido solicitado</th>
+                    <th>Precio total</th>
+                    <th>Borrar</th>
+                    <th>Editar</th>
 
 
-            </tr>
-        </thead>
-        <tbody>
-            {% if precio %}
+                </tr>
+            </thead>
+            <tbody>
+                {% if precio %}
 
-            <tr>
-                <td>{{ precio.id }}</td>
-                <td>{{ precio.producto_solicitado }}</td>
-                <td>{{ precio.pedido_solicitado }}</td>
-                <td>{{ precio.precio_total}}</td>
-                <td><a href="{% url 'precio_delete' pk=precio.id %}">Borrar</a></td>
-                <td><a href="{% url 'precio_edit' pk=precio.id %}">Editar</a></td>
+                <tr>
+                    <td>{{ precio.id }}</td>
+                    <td>{{ precio.producto_solicitado }}</td>
+                    <td>{{ precio.pedido_solicitado }}</td>
+                    <td>{{ precio.precio_total}}</td>
+                    <td><a href="{% url 'precio_delete' pk=precio.id %}">Borrar</a></td>
+                    <td><a href="{% url 'precio_edit' pk=precio.id %}">Editar</a></td>
 
-            </tr>
+                </tr>
 
-            {% endif %}
-        </tbody>
-    </table>
-</div>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}
