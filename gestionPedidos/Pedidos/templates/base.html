@@ -14,7 +14,7 @@
     <header>
         <nav class="navbar">
             <div class="navbar-logo">
-                <a href="{%url 'listado_clientes' %}"><img src="{% static 'imagenes/LOGO.jfif'%}" alt="foto logo"
+                <a href="{%url 'listado_clientes' %}"><img src="{% static 'imagenes/Logo.png'%}" alt="foto logo"
                         width="100" /></a>
             </div>
             <div class="navbar-menu">
@@ -31,13 +31,16 @@
                     <li>
                         <a href="{%url 'listado_productos' %}">Listado productos</a>
                     </li>
+                    <li>
+                        <a href="{%url 'listado_precios' %}">Listado precios</a>
+                    </li>
                 </ul>
             </div>
         </nav>
         <div class="hero-image">
             <h1>Deustronic Components S.L.</h1>
             <p class="hero-description">La comodidad en la puerta de tu casa</p>
-          </div>
+        </div>
     </header>
     <main>
         {% block contenido %}{% endblock %}
@@ -69,6 +72,9 @@
                         </li>
                         <li>
                             <a href="{%url 'listado_productos' %}">Listado productos</a>
+                        </li>
+                        <li>
+                            <a href="{%url 'listado_precios' %}">Listado precios</a>
                         </li>
 
                     </ul>

@@ -1,9 +1,9 @@
 
-from .models import Producto, Pedido,Componente, Cliente
+from .models import Producto, Pedido,Componente, Cliente, Producto_pedido
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.views import View
-from Pedidos.forms import PedidoForm, ClienteForm,ComponenteForm,ProductoForm
+from Pedidos.forms import PedidoForm, ClienteForm,ComponenteForm,ProductoForm,Producto_pedidoForm
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
@@ -71,12 +71,12 @@ class ClienteListView(ListView):
 class ClienteDetailView(DetailView):
     model = Cliente
     template_name = 'cliente_detail.html'
-
+#Borrado del cliente
 class ClienteDeleteView(DeleteView):
     model = Cliente
     success_url = reverse_lazy('listado_clientes')
     template_name = 'cliente_delete.html'
-
+#Actualizacion del cliente
 class ClienteUpdateView(UpdateView):
     model = Cliente
     template_name = 'cliente_edit.html'
@@ -110,12 +110,12 @@ class ComponenteListView(ListView):
 class ComponenteDetailView(DetailView):
     model = Componente
     template_name = 'componente_detail.html'
-
+#Borrado del componente
 class ComponenteDeleteView(DeleteView):
     model = Componente
     success_url = reverse_lazy('listado_componente')
     template_name = 'componente_delete.html'
-
+#Actualizacion del componente
 class ComponenteUpdateView(UpdateView):
     model = Componente
     template_name = 'componente_edit.html'
@@ -159,5 +159,41 @@ class ProductoUpdateView(UpdateView):
     template_name = 'producto_edit.html'
     success_url = reverse_lazy('listado_productos')
     fields = ['referencia', 'precio', 'nombre', 'descripcion','categoria','componentes']
+
+# Detalle de precio
+class PrecioDetailView(DetailView):
+    model = Producto_pedido
+    template_name = 'precio_detail.html'
+
+# Listado de precios
+class PrecioListView(ListView):
+    model = Producto_pedido
+    queryset = Producto_pedido.objects.order_by('precio_total')
+    context_object_name = 'listado_precios'
+    template_name = 'precio_list.html'
+    
+    
+#Creacion precios
+class PrecioCreateView(CreateView):
+    model = Producto_pedido
+    form_class = Producto_pedidoForm
+    template_name = 'producto_create.html'
+    success_url = reverse_lazy('listado_precios')    
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+#Borrado de los precios
+class PrecioDeleteView(DeleteView):
+    model = Producto_pedido
+    success_url = reverse_lazy('listado_precios')
+    template_name = 'precio_delete.html'
+#Actualizar precios
+class PrecioUpdateView(UpdateView):
+    model = Producto_pedido
+    template_name = 'precio_edit.html'
+    success_url = reverse_lazy('listado_precios')
+    fields = ['producto_solicitado', 'pedido_solicitado', 'precio_total']
+
 
 

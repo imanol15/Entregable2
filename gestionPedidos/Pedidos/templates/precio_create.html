@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block titulo %} Creacion de los precios {% endblock %}
+{% block contenido %}
+  <div class="container">
+    <h1>Crear precio</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.producto_solicitado.label_tag }}
+      {{ form.producto_solicitado }}
+    </div>
+    <div class="form-group">
+      {{ form.pedido_solicitado.label_tag }}
+      {{ form.pedido_solicitado }}
+    </div>
+    <div class="form-group">
+      {{ form.precio_total.label_tag }}
+      {{ form.precio_total }}
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div>
+{% endblock %}

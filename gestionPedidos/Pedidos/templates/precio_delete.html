@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block titulo %} Borrado del precio {% endblock %}
+
+{% block contenido %}
+<div class="borrar">
+  <h1>Eliminar precio "{{ precio.precio_total }}"</h1>
+  <form method="post" class="delete-form">
+    {% csrf_token %}
+    <p>¿Estás seguro de que quieres eliminar este precio?</p>
+    <button type="submit" class="btn btn-danger btn-delete">Eliminar</button>
+    <a href="{% url 'listado_pedidos' %}" class="btn btn-secondary btn-cancel">Cancelar</a>
+  </form>
+</div>
+  
+{% endblock %}
