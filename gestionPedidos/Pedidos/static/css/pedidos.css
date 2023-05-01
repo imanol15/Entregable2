@@ -459,3 +459,62 @@ footer {
   margin-top: 150px;
   margin-left: 460px;
 }
+
+.que-ofrecemos {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 150px;
+  color: #ddd;
+
+}
+
+.imagen {
+  flex-basis: 40%;
+  margin-right: 30px;
+  margin-top: 35px;
+}
+
+.imagen img {
+
+  max-width: 100%;
+}
+
+.texto {
+  flex-basis: 55%;
+  margin-left: 20px;
+  margin-right: 35px;
+}
+
+.texto h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.texto p {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+/* ejemplo de tamaño de pantalla*/
+@media (max-width: 600px) {
+
+/* He cambiado que la foto aparezca debajo del texto de que ofrecemos*/
+.que-ofrecemos {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  border: 3px grey solid;
+  padding: 10px;
+}
+
+/* He puesto un order para que aparezca primero el texto y luego la foto*/
+.imagen {
+  order: -1;
+  
+}
+
+.texto {
+  order: -2;
+}
+}

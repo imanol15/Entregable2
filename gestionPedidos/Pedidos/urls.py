@@ -3,9 +3,12 @@ from . import views
 
 
 urlpatterns = [
+    
+    #Pagina Principal
+    path('', views.index, name='index'),
      
     #Urls de clientes
-    path('', views.ClienteListView.as_view(), name='listado_clientes'),
+    path('clientes/', views.ClienteListView.as_view(), name='listado_clientes'),
     path('clientes/<int:pk>/', views.ClienteDetailView.as_view(), name='cliente_detail'),
     path('clientes/create/', views.ClienteCreateView.as_view(), name='create_cliente'),
     path('clientes/<int:pk>/borrar/', views.ClienteDeleteView.as_view(), name='cliente_delete'),

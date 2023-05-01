@@ -1,12 +1,13 @@
 
 from .models import Producto, Pedido,Componente, Cliente, Producto_pedido
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
-from django.shortcuts import get_object_or_404, get_list_or_404
-from django.views import View
 from Pedidos.forms import PedidoForm, ClienteForm,ComponenteForm,ProductoForm,Producto_pedidoForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 
+# LLamada a la pagina principal
+def index(req):    
+    return render(req,"index.html")
 
 # Detalle de Pedidos
 class PedidoDetailView(DetailView):
