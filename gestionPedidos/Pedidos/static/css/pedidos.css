@@ -86,7 +86,7 @@ header {
 
 /* Imagen del header */
 .hero-image {
-  background-image: url('/static/imagenes/Imagen-Pedidos.jpeg');
+  background-image: url('/static/imagenes/logo4.jpg');
   background-size: cover;
   background-position: center;
   height: 100%;
