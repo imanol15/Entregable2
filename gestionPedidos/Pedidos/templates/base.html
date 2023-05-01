@@ -1,45 +1,63 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    
+
     <link rel="stylesheet" href="{% static 'css/pedidos.css'%}">
     <title>{% block titulo %}Gestor de Empleados{% endblock %}</title>
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header>
-        <a  href="{%url 'listado_clientes' %}"><img src="{% static 'imagenes/logo.jpg'%}" alt="foto logo" width="100"  /></a>
 
-        <nav>
-            <ul class="indice">
-                <li >
-                    <a  href="{%url 'listado_clientes' %}">Listado clientes</a>
-                </li>
-                <li>
-                    <a href="{% url 'listado_pedidos'  %}">Listado pedidos</a>
-                </li>
-                <li>
-                    <a href="{% url 'listado_componentes'  %}">Listado componentes</a>
-                </li>
-                <li>
-                    <a href="{%url 'listado_productos' %}">Listado productos</a>
-                </li>
-            </ul>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <a href="{%url 'listado_clientes' %}"><img src="{% static 'imagenes/Logo.png'%}" alt="foto logo"
+                        width="100" /></a>
+            </div>
+            <div class="navbar-menu">
+                <ul>
+                    <li>
+                        <a href="{%url 'listado_clientes' %}">Listado clientes</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'listado_pedidos'  %}">Listado pedidos</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'listado_componentes'  %}">Listado componentes</a>
+                    </li>
+                    <li>
+                        <a href="{%url 'listado_productos' %}">Listado productos</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
+        <div class="hero-image">
+            <h1>Deustronic Components S.L.</h1>
+            <p class="hero-description">La comodidad en la puerta de tu casa</p>
+          </div>
     </header>
     <main>
         {% block contenido %}{% endblock %}
     </main>
     <footer>
-
-        <div class="contenedor-footer">
-            <div class="navegacion">
-                <h4>Enlaces</h4>
-                <div class="indice-footer">
-                    <ul>
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h4>Acerca de nosotros</h4>
+                    <ul class="social-icons">
+                        <li><a href="https://es-es.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://twitter.com/?lang=es"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li><a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces útiles</h4>
+                    <ul class="links">
                         <li>
                             <a href="{%url 'listado_clientes' %}">Listado clientes</a>
                         </li>
@@ -55,30 +73,20 @@
 
                     </ul>
                 </div>
-            </div>
-            <div class="Pedidos">
-                <h4> ¿Que hacemos? </h4>
-                <p>En nuestra empresa de pedidos, nos dedicamos a brindar soluciones eficientes y efectivas para
-                    gestionar los pedidos de nuestros clientes. Ofrecemos un servicio completo que abarca desde la
-                    recepción del pedido hasta su entrega, pasando por la preparación, empaquetado y transporte. Además,
-                    contamos con una plataforma online que permite a nuestros clientes realizar sus pedidos de forma
-                    rápida y sencilla, y realizar un seguimiento del estado de los mismos en tiempo real.</p>
-            </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> C/ Madrid, 50 01003 VITORIA - GASTEIZ</li>
+                        <li><i class="fas fa-envelope"></i> Deustronic@hotmail.com</li>
+                        <li><i class="fas fa-phone"></i> (+34) 945 72 85 33</li>
+                    </ul>
+                </div>
 
-
-            <div class="datos">
-                <h4>Contacto</h4>
-                <ul>
-                    <li> <i class="fa fa-map-marker" aria-hidden="true"> Judizmendi 33 Vitoria, Spain</i></li>
-                    <li><i class="fa fa-phone" aria-hidden="true"> (+34) 945 17 55 33 </i> </li>
-                    <li><i class="fa fa-envelope-o" aria-hidden="true">info@empresa.com</i></li>
-                </ul>
             </div>
         </div>
-        <div class="derechos">
-            <p>Derechos de autor © 2023 empresa. Todos los derechos reservados.</p>
+        <div class="footer-bottom">
+            <p>Derechos de autor © 2023 MiEmpresa. Todos los derechos reservados.</p>
         </div>
-    </footer>
     </footer>
 </body>
 

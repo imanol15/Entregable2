@@ -1,275 +1,405 @@
+body {
+  background-color: #000;
+  color: #ffffff;
+}
+
+
+
 header {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid rgb(30, 205, 205);
-  }
-  
-  img {
-    max-width: 100%;
-  }
-  
-  /* Aqui empieza el codigo css que se utiliza para el indice del footer*/
-  .indice {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .indice li {
-    list-style: none;
-    padding: 10px;
-    margin-top: 15px;
-  }
-  
-  .indice a {
-    color: black;
-    text-decoration: none;
-  
-  }
-  
-  .indice :hover {
-    color: rgb(239, 14, 239);
-  
-  }
-  
-  
+  background-color: #000;
+  color: #fff;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  /* Aqui empieza el css del footer de la pagina que se divide en tres partes navegacion, que hacemos y datos*/
+}
+
+/* Navigation bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #000;
+  z-index: 1;
+  height: 70px;
+}
+
+.navbar-logo {
+  flex-basis: 20%;
+}
+
+.navbar-logo img {
+  height: 50px;
+}
+
+.navbar-menu {
+  flex-basis: 70%;
+}
+
+.navbar-menu ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li {
+  margin-left: 30px;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-menu a:hover {
+  color: #f1c40f;
+}
+
+.navbar-options {
+  flex-basis: 25%;
+}
+
+.navbar-options a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-options a:hover {
+  color: #f1c40f;
+}
+
+/* Imagen del header */
+.hero-image {
+  background-image: url('/static/imagenes/Imagen-Pedidos.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 100px;
+  box-sizing: border-box;
+  margin-top: 150px;
+  min-height: 100vh;
+}
+
+.hero-image h1 {
+  font-size: 72px;
+  margin-bottom: 30px;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 2px 2px #000;
+  text-transform: uppercase;
+
+}
+
+.hero-description {
+  font-size: 24px;
+  margin-bottom: 60px;
+  color: #fff;
+  text-shadow: 2px 2px #000;
+}
+
+img {
+  max-width: 100%;
+  /* ancho del contenedor */
+  height: auto;
+  /* altura automática según la proporción */
+  object-fit: contain;
+  /* ajustar la imagen sin deformarla */
+}
+
+/* Aqui empieza el codigo css que se utiliza para el indice del footer*/
+.indice {
+  display: flex;
+  justify-content: space-between;
+}
+
+.indice li {
+  list-style: none;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.indice a {
+  color: black;
+  text-decoration: none;
+
+}
+
+.indice :hover {
+  color: rgb(239, 14, 239);
+
+}
+
+
+
+/* Aqui empieza el css del footer de la pagina que se divide en tres partes navegacion, que hacemos y datos*/
 footer {
-    background-color: black;
-    color: white;
-  
-  }
-  
-  .contenedor-footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  
-  }
-  
-  /** El  CSS del apartado de navegacion que lo mas significatico es que le 
-  añado un margen y un tamaño concreto dentro del flex*/
-  .navegacion {
-    flex-basis: 20%;
-    margin-bottom: 40px;
-    margin-left: 20px;
-  }
-  
-  .navegacion h4 {
-    margin-bottom: 20px;
-  }
-  
-  .navegacion ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navegacion {
-    line-height: 1.5;
-  }
-  
-  .navegacion a {
-    color: white;
-    text-decoration: none;
-  
-  }
-  
-  .indice-footer :hover {
-    color: red;
-  
-  }
-  
-  /* El CSS de que hacemos que tambien le añado un tamaño de flex concreto*/
-  .Pedidos {
-    flex-basis: 40%;
-    margin-bottom: 40px;
-  }
-  
-  .Pedidos h4 {
-    margin-bottom: 20px;
-  }
-  
-  .Pedidos p {
-    font-size: 14px;
-    text-align: justify;
-  }
-  
-  
-  /* El CSS de datos que tambien le añado un tamaño de flex concreto y un margen entre cada dato*/
-  .datos {
-    flex-basis: 20%;
-    margin-bottom: 40px;
-    margin-right: 20px;
-    line-height: 1.5;
-  }
-  
-  .datos h4 {
-    margin-bottom: 20px;
-  }
-  
-  .datos ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .datos li {
-    color: white;
-    list-style: none;
-  
-  }
-  
-  /* El CSS de los derechos de autor que lo pongo en el centro del footer*/
-  .derechos {
-    margin-top: 25px;
-    text-align: center;
-  }
-  
-  .derechos p {
-    font-size: 14px;
-    margin: 0;
-  }
+  background-color: #000000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  margin-top: 60px;
+  border-top: 3px solid white;
 
-  .empresa-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 40px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #fff;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-group label {
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 16px;
-  }
-  
-  .form-group input {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-  }
-  
-  .btn-primary {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0062cc;
-  }
-  .delete-object {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f8f9fa;
-    
-  }
-  
-  .delete-form {
-    width: 400px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px #ccc;
-    text-align: center;
-  }
-  
-  .delete-form p {
-    margin-top: 0;
-    margin-bottom: 20px;
-  }
-  
-  .btn-delete, .btn-cancel {
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    text-decoration: none;
-    display: inline-block;
-  }
-  
-  .btn-delete {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    color: #fff;
-  }
-  
-  .btn-cancel {
-    background-color: #ccc;
-    border-color: #ccc;
-    color: #333;
-    margin-left: 10px;
-  }
-  
-  .btn-delete:hover, .btn-cancel:hover {
-    /* Esto hace que los botones sobresalgan*/
-    transform: translateY(-3px);
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  }
+}
 
-  /* Estilos para la tabla */
-  .cliente-header {
-    margin-bottom: 20px;
-  }
-  
-  .cliente-tabla {
-    width: 100%;
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.footer-col {
+  flex-basis: calc(25% - 40px);
+  margin: 20px;
+}
+
+.footer-col h4 {
+  margin-bottom: 20px;
+}
+
+/* Estilos de los enlaces del footer */
+.links li {
+  margin-bottom: 10px;
+}
+
+.links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos de la sección de contacto */
+.contact-info {
+  margin-top: 20px;
+  list-style: none;
+  padding-left: 0;
+
+}
+
+.contact-info li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-info i {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 10px;
+
+}
+
+/* Estilos de la sección de boletín informativo */
+.footer-col form {
+  display: flex;
+  margin-top: 20px;
+
+}
+
+.footer-col input[type="email"] {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.footer-col button[type="submit"] {
+  background-color: #fff;
+  color: #292929;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.footer-col button[type="submit"]:hover {
+  background-color: #ccc;
+}
+
+.footer-bottom {
+
+  text-align: center;
+
+}
+
+.empresa-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.form-group input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.btn-primary {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0062cc;
+}
+
+.delete-object {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+
+}
+
+.delete-form {
+  width: 400px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #ccc;
+  text-align: center;
+}
+
+.delete-form p {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.btn-delete,
+.btn-cancel {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #fff;
+}
+
+.btn-cancel {
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #333;
+  margin-left: 10px;
+}
+
+.btn-delete:hover,
+.btn-cancel:hover {
+  /* Esto hace que los botones sobresalgan*/
+  transform: translateY(-3px);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para la tabla */
+.cliente-header {
+  margin-bottom: 20px;
+}
+
+.cliente-tabla {
+  width: 100%;
   border-collapse: collapse;
-  }
-  
-  .cliente-tabla th, .cliente-tabla td {
-    padding: 10px;
+}
+
+.cliente-tabla th,
+.cliente-tabla td {
+  padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
-  }
-  
-  .cliente-tabla th {
-    background-color: #f2f2f2;
-  }
-  
-  .cliente-tabla a {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-right: 5px;
-  }
-  
-  
-  .cliente-tabla a:hover {
-    background-color: #3ca040;
-  }
+}
 
-  /* Estilos para el título "Menu" */
+.cliente-tabla th {
+  background-color: #f2f2f2;
+}
+
+.cliente-tabla a {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+
+.cliente-tabla a:hover {
+  background-color: #3ca040;
+}
+
+/* Estilos para el título "Menu" */
 .menu-titulo h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
 /* Estilos para el contenedor principal del menú */
-.menu-titulo, .menu-contenido {
+.menu-titulo,
+.menu-contenido {
   margin: 0;
   padding: 0;
 }
@@ -294,7 +424,7 @@ footer {
   color: #333;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  
+
 }
 
 /* Estilos para los enlaces del menú al pasar el mouse */
@@ -309,13 +439,14 @@ footer {
 
 .pedido-tabla {
   width: 100%;
-border-collapse: collapse;
+  border-collapse: collapse;
 }
 
-.pedido-tabla th, .pedido-tabla td {
+.pedido-tabla th,
+.pedido-tabla td {
   padding: 10px;
-text-align: left;
-border-bottom: 1px solid #ddd;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
 .pedido-tabla th {
