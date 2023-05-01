@@ -3,9 +3,12 @@
 {% block titulo %}Listado de clientes{% endblock %}
 
 {% block contenido %}
-<div class="menu-titulo">
-    <h1>Menu</h1>
-</div>
+
+<div class="menu">
+
+    <div class="menu-titulo">
+        <h1>Menu</h1>
+    </div>
     <div class="menu-contenido">
         <ul>
             <li>
@@ -19,37 +22,39 @@
 
         </ul>
     </div>
-    <div class="cliente-header">
-        <h1>Listado del Cliente</h1>
-    </div>
-    <div class="cliente-tabla">
-        {% if listado_clientes %}
-        <table>
-            <thead>
-                <tr>
+</div>
 
-                    <th>ID</th>
-                    <th>CIF</th>
-                    <th>Ver Detalle</th>
+<div class="listado-header">
+    <h1>Listado del Cliente</h1>
+</div>
+<div class="listado-tabla">
+    {% if listado_clientes %}
+    <table>
+        <thead>
+            <tr>
+
+                <th>ID</th>
+                <th>CIF</th>
+                <th>Ver Detalle</th>
 
 
-                </tr>
-            </thead>
+            </tr>
+        </thead>
 
-            <tbody>
-                {% for cliente in listado_clientes %}
-                <tr>
+        <tbody>
+            {% for cliente in listado_clientes %}
+            <tr>
 
-                    <td>{{ cliente.id }}</td>
-                    <td>{{ cliente.cif }}</td>
-                    <td><a href="{% url 'cliente_detail' pk=cliente.id %}">Detalle</a></td>
-                    {% endfor %}
-                </tr>
+                <td>{{ cliente.id }}</td>
+                <td>{{ cliente.cif }}</td>
+                <td><a href="{% url 'cliente_detail' pk=cliente.id %}">Detalle</a></td>
+                {% endfor %}
+            </tr>
 
-                {% else %}
-                <p>No hay clientes creados.</p>
-                {% endif %}
-            </tbody>
-        </table>
-    </div>
-    {% endblock %}
+            {% else %}
+            <p>No hay clientes creados.</p>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

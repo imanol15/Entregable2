@@ -2,40 +2,44 @@
 {% block titulo %} Detalle del cliente {% endblock %}
 
 {% block contenido %}
-<div class="cliente-header">
-    <h1>Detalle del Cliente</h1>
-</div>
-<div class="cliente-tabla">
-    <table>
-        <thead>
-            <tr>
+<div class="menu">
 
-                <th>ID</th>
-                <th>CIF</th>
-                <th>Nombre de empresa</th>
-                <th>Dirección</th>
-                <th>Datos de contacto</th>
-                <th>Borrar</th>
-                <th>Editar</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            {% if cliente %}
+    <div class="listado-header">
+        <h1>Detalle del Cliente</h1>
+    </div>
+    <div class="listado-tabla">
+        <table>
+            <thead>
+                <tr>
 
-            <tr>
-                <td>{{ cliente.id }}</td>
-                <td>{{ cliente.cif }}</td>
-                <td>{{ cliente.nombre_empresa }}</td>
-                <td>{{ cliente.direccion }}</td>
-                <td>{{ cliente.datos_contacto }}</td>
-                <td><a href="{% url 'cliente_delete' pk=cliente.id %}">Borrar</a></td>
-                <td><a href="{% url 'cliente_edit' pk=cliente.id %}">Editar</a></td>
+                    <th>ID</th>
+                    <th>CIF</th>
+                    <th>Nombre de empresa</th>
+                    <th>Dirección</th>
+                    <th>Datos de contacto</th>
+                    <th>Borrar</th>
+                    <th>Editar</th>
 
-            </tr>
+                </tr>
+            </thead>
+            <tbody>
+                {% if cliente %}
 
-            {% endif %}
-        </tbody>
-    </table>
+                <tr>
+                    <td>{{ cliente.id }}</td>
+                    <td>{{ cliente.cif }}</td>
+                    <td>{{ cliente.nombre_empresa }}</td>
+                    <td>{{ cliente.direccion }}</td>
+                    <td>{{ cliente.datos_contacto }}</td>
+                    <td><a href="{% url 'cliente_delete' pk=cliente.id %}">Borrar</a></td>
+                    <td><a href="{% url 'cliente_edit' pk=cliente.id %}">Editar</a></td>
+
+                </tr>
+
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

@@ -3,9 +3,10 @@
 {% block titulo %}Listado de pedidos{% endblock %}
 
 {% block contenido %}
-<div class="menu-titulo">
-    <h1>Menu</h1>
-</div>
+<div class="menu">
+    <div class="menu-titulo">
+        <h1>Menu</h1>
+    </div>
     <div class="menu-contenido">
         <ul>
             <li>
@@ -19,37 +20,40 @@
 
         </ul>
     </div>
-    <div class="pedido-header">
-        <h1>Listado del Pedidos</h1>
-    </div>
-    <div class="pedido-tabla">
-        {% if listado_pedidos %}
-        <table>
-            <thead>
-                <tr>
 
-                    <th>ID</th>
-                    <th>Codigo Referencia</th>
-                    <th>Ver Detalle</th>
+</div>
+
+<div class="listado-header">
+    <h1>Listado del Pedidos</h1>
+</div>
+<div class="listado-tabla">
+    {% if listado_pedidos %}
+    <table>
+        <thead>
+            <tr>
+
+                <th>ID</th>
+                <th>Codigo Referencia</th>
+                <th>Ver Detalle</th>
 
 
-                </tr>
-            </thead>
+            </tr>
+        </thead>
 
-            <tbody>
-                {% for pedido in listado_pedidos %}
-                <tr>
+        <tbody>
+            {% for pedido in listado_pedidos %}
+            <tr>
 
-                    <td>{{ pedido.id }}</td>
-                    <td>{{ pedido.codigo_referencia }}</td>
-                    <td><a href="{% url 'pedido_detail' pk=pedido.id %}">Detalle</a></td>
-                    {% endfor %}
-                </tr>
+                <td>{{ pedido.id }}</td>
+                <td>{{ pedido.codigo_referencia }}</td>
+                <td><a href="{% url 'pedido_detail' pk=pedido.id %}">Detalle</a></td>
+                {% endfor %}
+            </tr>
 
-                {% else %}
-                <p>No hay pedidos creados.</p>
-                {% endif %}
-            </tbody>
-        </table>
-    </div>
-    {% endblock %}
+            {% else %}
+            <p>No hay pedidos creados.</p>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
