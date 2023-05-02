@@ -32,11 +32,7 @@ urlpatterns = [
     path('productos/<int:pk>/borrar/', views.ProductoDeleteView.as_view(), name='producto_delete'),
     path('productos/<int:pk>/editar/', views.ProductoUpdateView.as_view(), name='producto_edit'),
     #Urls de precio
-    path('precios/', views.PrecioListView.as_view(), name='listado_precios'),
-    path('precios/<int:pk>', views.PrecioDetailView.as_view(), name='precio_detail'),
-    path('precios/create/', views.PrecioCreateView.as_view(), name='precio_create'),
-    path('precios/<int:pk>/borrar/', views.PrecioDeleteView.as_view(), name='precio_delete'),
-    path('precios/<int:pk>/editar/', views.PrecioUpdateView.as_view(), name='precio_edit'),  
+    path('ProductoPedido/create/', views.ProductoPedidoCreateView.as_view(), name='ProductoPedido_create'), 
 ]
 
 

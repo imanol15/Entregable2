@@ -1,7 +1,7 @@
 
-from .models import Producto, Pedido,Componente, Cliente, Producto_pedido
+from .models import Producto, Pedido,Componente, Cliente,ProductoPedido
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
-from Pedidos.forms import PedidoForm, ClienteForm,ComponenteForm,ProductoForm,Producto_pedidoForm
+from Pedidos.forms import PedidoForm, ClienteForm,ComponenteForm,ProductoForm,ProductoPedidoForm
 from django.shortcuts import render
 from django.urls import reverse_lazy
 
@@ -17,7 +17,7 @@ class PedidoDetailView(DetailView):
 # Listado de Pedidos
 class PedidoListView(ListView):
     model = Pedido
-    queryset = Pedido.objects.order_by('codigo_referencia')
+    queryset = Pedido.objects.order_by('id')
     context_object_name = 'listado_pedidos'
     template_name = 'pedido_list.html'
     
@@ -42,7 +42,7 @@ class PedidoUpdateView(UpdateView):
     model = Pedido
     template_name = 'pedido_edit.html'
     success_url = reverse_lazy('listado_pedidos')
-    fields = ['codigo_referencia', 'fecha', 'cliente', 'cantidad']
+    fields = ['codigo_referencia', 'fecha', 'cliente', 'preciototal']
 
 
 
@@ -63,7 +63,7 @@ class ClienteCreateView(CreateView):
 # Listado de Clientes
 class ClienteListView(ListView):
     model = Cliente
-    queryset = Cliente.objects.order_by('cif')
+    queryset = Cliente.objects.order_by('id')
     context_object_name = 'listado_clientes'
     template_name = 'cliente_list.html'
     
@@ -102,7 +102,7 @@ class ComponenteCreateView(CreateView):
 # Listado de Componente
 class ComponenteListView(ListView):
     model = Componente
-    queryset = Componente.objects.order_by('componentes_codigo_referencia')
+    queryset = Componente.objects.order_by('id')
     context_object_name = 'listado_componentes'
     template_name = 'componente_list.html'
     
@@ -134,7 +134,7 @@ class ProductoDetailView(DetailView):
 # Listado de Productos
 class ProductoListView(ListView):
     model = Producto
-    queryset = Producto.objects.order_by('referencia')
+    queryset = Producto.objects.order_by('id')
     context_object_name = 'listado_productos'
     template_name = 'producto_list.html'
     
@@ -149,6 +149,7 @@ class ProductoCreateView(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
 #Borrado de los Productos
 class ProductoDeleteView(DeleteView):
     model = Producto
@@ -160,41 +161,19 @@ class ProductoUpdateView(UpdateView):
     template_name = 'producto_edit.html'
     success_url = reverse_lazy('listado_productos')
     fields = ['referencia', 'precio', 'nombre', 'descripcion','categoria','componentes']
-
-# Detalle de precio
-class PrecioDetailView(DetailView):
-    model = Producto_pedido
-    template_name = 'precio_detail.html'
-
-# Listado de precios
-class PrecioListView(ListView):
-    model = Producto_pedido
-    queryset = Producto_pedido.objects.order_by('precio_total')
-    context_object_name = 'listado_precios'
-    template_name = 'precio_list.html'
-    
-    
-#Creacion precios
-class PrecioCreateView(CreateView):
-    model = Producto_pedido
-    form_class = Producto_pedidoForm
-    template_name = 'precio_create.html'
-    success_url = reverse_lazy('listado_precios')    
+#Creacion ProductoPedido
+class ProductoPedidoCreateView(CreateView):
+    model = ProductoPedido
+    form_class = ProductoPedidoForm
+    template_name = 'productopedido_create.html'
+    success_url = reverse_lazy('listado_productos')    
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
-#Borrado de los precios
-class PrecioDeleteView(DeleteView):
-    model = Producto_pedido
-    success_url = reverse_lazy('listado_precios')
-    template_name = 'precio_delete.html'
-#Actualizar precios
-class PrecioUpdateView(UpdateView):
-    model = Producto_pedido
-    template_name = 'precio_edit.html'
-    success_url = reverse_lazy('listado_precios')
-    fields = ['producto_solicitado', 'pedido_solicitado', 'precio_total']
+
+
+
 
 
 

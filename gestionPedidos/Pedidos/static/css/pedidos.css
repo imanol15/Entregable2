@@ -361,6 +361,9 @@ footer {
   background-color: #222;
   color: #fff;
 }
+.listado-tabla ul,li{
+  text-decoration: none;
+}
 
 .listado-tabla a {
   display: inline-block;

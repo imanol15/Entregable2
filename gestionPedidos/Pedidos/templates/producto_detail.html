@@ -21,6 +21,7 @@
                     <th>Componentes</th>
                     <th>Borrar</th>
                     <th>Editar</th>
+                    
 
 
                 </tr>
@@ -38,10 +39,10 @@
                     <td>{{ producto.componentes}}</td>
                     <td><a href="{% url 'producto_delete' pk=producto.id %}">Borrar</a></td>
                     <td><a href="{% url 'producto_edit' pk=producto.id %}">Editar</a></td>
-
+                    
                 </tr>
-
                 {% endif %}
+
             </tbody>
         </table>
     </div>

@@ -18,7 +18,9 @@
             <li>
                 <a href="{% url 'listado_productos' %}">Listado producto</a>
             </li>
-
+            <li>
+                <a href="{% url 'ProductoPedido_create' %}">Crear Productos Pedidos</a>
+            </li>
         </ul>
     </div>
 
@@ -35,7 +37,12 @@
             <tr>
 
                 <th>ID</th>
-                <th>Codigo Referencia</th>
+                <th>Referencia</th>
+                <th>Precio</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Categoria</th>
+                <th>Componentes</th>
                 <th>Ver Detalle</th>
 
 
@@ -48,6 +55,11 @@
 
                 <td>{{ producto.id }}</td>
                 <td>{{ producto.referencia }}</td>
+                <td>{{ producto.precio }}</td>
+                <td>{{ producto.nombre}}</td>
+                <td>{{ producto.descripcion}}</td>
+                <td>{{ producto.categoria}}</td>
+                <td>{{ producto.componentes}}</td>
                 <td><a href="{% url 'producto_detail' pk=producto.id %}">Detalle</a></td>
                 {% endfor %}
             </tr>

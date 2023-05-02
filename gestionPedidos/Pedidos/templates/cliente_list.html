@@ -35,6 +35,9 @@
 
                 <th>ID</th>
                 <th>CIF</th>
+                <th>Nombre de empresa</th>
+                <th>Dirección</th>
+                <th>Datos de contacto</th>
                 <th>Ver Detalle</th>
 
 
@@ -47,6 +50,9 @@
 
                 <td>{{ cliente.id }}</td>
                 <td>{{ cliente.cif }}</td>
+                <td>{{ cliente.nombre_empresa }}</td>
+                <td>{{ cliente.direccion }}</td>
+                <td>{{ cliente.datos_contacto }}</td>
                 <td><a href="{% url 'cliente_detail' pk=cliente.id %}">Detalle</a></td>
                 {% endfor %}
             </tr>

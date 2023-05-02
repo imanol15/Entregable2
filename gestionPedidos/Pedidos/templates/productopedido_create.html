@@ -1,10 +1,9 @@
-{% extends "base.html" %}
-
-{% block titulo %} Edit del precio {% endblock %}
-
+{% extends 'base.html' %}
+{% block titulo %} Creacion del producto {% endblock %}
 {% block contenido %}
 <div class="container">
-    <h1>Editar precio "{{ precio.precio_total }}"</h1>
+    <h1>Crear Producto</h1>
+
     <form method="post">
         {% csrf_token %}
         <div class="form-group">
@@ -16,10 +15,12 @@
             {{ form.pedido_solicitado }}
         </div>
         <div class="form-group">
-            {{ form.precio_total.label_tag }}
-            {{ form.precio_total }}
+            {{ form.cantidad.label_tag }}
+            {{ form.cantidad }}
         </div>
-        <button type="submit" class="btn btn-primary">Actualizar</button>
+        
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </div>
 {% endblock %}
+

@@ -34,7 +34,14 @@
 
                 <th>ID</th>
                 <th>Codigo Referencia</th>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Precio Total</th>
+                <th>Producto referencia</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
                 <th>Ver Detalle</th>
+                
 
 
             </tr>
@@ -46,7 +53,25 @@
 
                 <td>{{ pedido.id }}</td>
                 <td>{{ pedido.codigo_referencia }}</td>
+                <td>{{ pedido.fecha }}</td>
+                <td>{{ pedido.cliente}}</td>
+                <td>{{ pedido.preciototal}}</td>
+                <td>{% for producto_pedido in pedido.productopedido_set.all %}
+                    {{ producto_pedido.producto_solicitado.referencia }}
+                    {% endfor %}</td>
+
+                <td>{% for producto_pedido in pedido.productopedido_set.all %}
+                    {{ producto_pedido.producto_solicitado.nombre }}
+                    {% endfor %}</td>
+                <td>
+
+                    {% for producto_pedido in pedido.productopedido_set.all %}
+                    {{ producto_pedido.cantidad }}
+                    {% endfor %}
+
+                </td>
                 <td><a href="{% url 'pedido_detail' pk=pedido.id %}">Detalle</a></td>
+                
                 {% endfor %}
             </tr>
 

@@ -18,9 +18,9 @@ class Producto(models.Model):
     descripcion = models.TextField()
     categoria = models.CharField(max_length=50)
     componentes = models.ForeignKey(Componente, on_delete=models.CASCADE)
+
     def __str__(self):
         return self.nombre
-    
 
 #Clase cliente    
 class Cliente(models.Model):
@@ -37,17 +37,27 @@ class Pedido(models.Model):
     codigo_referencia = models.CharField(max_length=50, unique=True)
     fecha = models.DateField()
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    cantidad = models.IntegerField()
+    preciototal = models.DecimalField(max_digits=10, decimal_places=2)
+    producto = models.ManyToManyField(Producto, through="ProductoPedido")
+    
     def __str__(self):
-        return self.codigo_referencia  
+        return self.codigo_referencia 
+
+    def obtener_cantidades(self):
+        cantidades = []
+        productos_pedido = ProductoPedido.objects.filter(pedido_solicitado=self)
+        for p in productos_pedido:
+            cantidades.append(p.cantidad)
+        return cantidades 
+
 
 # Hemos hecho una conexion n-m para producto pedido, es decir, varios pedidos pueden ser de varios productos y viceversa
-class Producto_pedido(models.Model):
+class ProductoPedido(models.Model):
     producto_solicitado = models.ForeignKey(Producto, on_delete=models.CASCADE)
     pedido_solicitado = models.ForeignKey(Pedido, on_delete=models.CASCADE)
-    precio_total = models.DecimalField(max_digits=10, decimal_places=2)
-
-    
+    cantidad = models.PositiveIntegerField(null=True)
+    def __str__(self):
+        return f"{self.producto_solicitado} - {self.pedido_solicitado} - {self.cantidad} " 
 
 
     
