@@ -338,38 +338,44 @@ footer {
 .listado-header {
   margin-bottom: 20px;
   margin-left: 30px;
+  color: #fff;
 }
 
 .listado-tabla {
   width: 100%;
   border-collapse: collapse;
   margin-left: 30px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .listado-tabla th,
 .listado-tabla td {
   padding: 10px;
   text-align: left;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .listado-tabla th {
-  background-color: #000000;
+  background-color: #222;
+  color: #fff;
 }
 
 .listado-tabla a {
   display: inline-block;
   padding: 5px 10px;
-  background-color: #4CAF50;
+  background-color: #04AA6D;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
   margin-right: 5px;
+  transition: all 0.2s ease;
 }
-
 
 .listado-tabla a:hover {
   background-color: #3ca040;
+  transform: scale(1.05);
 }
 
 /* Estilos para el título "Menu" */
