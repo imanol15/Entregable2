@@ -4,7 +4,7 @@ from .models import Componente,Producto,Pedido,Cliente,ProductoPedido
 class PedidoForm(ModelForm):
  class Meta:
     model = Pedido
-    fields = '__all__'
+    fields = ('codigo_referencia', 'fecha', 'cliente', 'preciototal')
 
 class ComponenteForm(ModelForm):
  class Meta:
