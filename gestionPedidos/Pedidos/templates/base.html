@@ -5,38 +5,40 @@
 <head>
 
     <link rel="stylesheet" href="{% static 'css/pedidos.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo %}Gestor de Empleados{% endblock %}</title>
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
 
-    <header>
+    <header{% if request.path == '/' %} class="hero-header"{% endif %}>
         <nav class="navbar">
             <div class="navbar-logo">
-                <a href="{%url 'index' %}"><img src="{% static 'imagenes/Logo.png'%}" alt="foto logo" width="100" /></a>
+                <a href="{% url 'index' %}"><img src="{% static 'imagenes/Logo.png' %}" alt="foto logo" width="100" /></a>
             </div>
             <div class="navbar-menu">
                 <ul>
                     <li>
-                        <a href="{%url 'listado_clientes' %}">Listado clientes</a>
+                        <a href="{% url 'listado_clientes' %}">Listado clientes</a>
                     </li>
                     <li>
-                        <a href="{% url 'listado_pedidos'  %}">Listado pedidos</a>
+                        <a href="{% url 'listado_pedidos' %}">Listado pedidos</a>
                     </li>
                     <li>
-                        <a href="{% url 'listado_componentes'  %}">Listado componentes</a>
+                        <a href="{% url 'listado_componentes' %}">Listado componentes</a>
                     </li>
                     <li>
-                        <a href="{%url 'listado_productos' %}">Listado productos</a>
+                        <a href="{% url 'listado_productos' %}">Listado productos</a>
                     </li>
                 </ul>
             </div>
         </nav>
+        {% if request.path == '/' %}
         <div class="hero-image">
             <h1>Deustronic Components S.L.</h1>
             <p class="hero-description">La comodidad en la puerta de tu casa</p>
         </div>
+        {% endif %}
     </header>
     <main>
         {% block contenido %}{% endblock %}
