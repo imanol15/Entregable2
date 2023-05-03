@@ -11,8 +11,6 @@
         <ul>
             <li>
                 <a href="{% url 'pedido_create' %}">Crear nuevo pedido</a>
-
-
             </li>
             <li>
                 <a href="{% url 'listado_pedidos' %}">Listado pedido</a>
@@ -31,7 +29,6 @@
     <table>
         <thead>
             <tr>
-
                 <th>ID</th>
                 <th>Codigo Referencia</th>
                 <th>Fecha</th>
@@ -40,16 +37,12 @@
                 <th>Borrar</th>
                 <th>Editar</th>
                 <th>Ver Detalle del producto</th>
-
-
-
             </tr>
         </thead>
 
         <tbody>
             {% for pedido in listado_pedidos %}
             <tr>
-
                 <td>{{ pedido.id }}</td>
                 <td>{{ pedido.codigo_referencia }}</td>
                 <td>{{ pedido.fecha }}</td>
@@ -57,9 +50,7 @@
                 <td>{{ pedido.preciototal}}</td>
                 <td><a href="{% url 'pedido_delete' pk=pedido.id %}">Borrar</a></td>
                 <td><a href="{% url 'pedido_edit' pk=pedido.id %}">Editar</a></td>
-                <td><a href="{% url 'pedido_detail' pk=pedido.id %}">Detalle del producto</a></td>
-
-                
+                <td><a href="{% url 'pedido_detail' pk=pedido.id %}">Detalle del producto</a></td>  
             </tr>
             {% endfor %}
             {% else %}

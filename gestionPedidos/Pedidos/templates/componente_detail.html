@@ -12,14 +12,12 @@
         <table>
             <thead>
                 <tr>
-
                     <th>ID</th>
                     <th>Codigo Referencia</th>
                     <th>Modelo</th>
                     <th>Marca</th>
                     <th>Borrar</th>
                     <th>Editar</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -32,7 +30,6 @@
                     <td>{{ componente.marca}}</td>
                     <td><a href="{% url 'componente_delete' pk=componente.id %}">Borrar</a></td>
                     <td><a href="{% url 'componente_edit' pk=componente.id %}">Editar</a></td>
-
                 </tr>
 
                 {% endif %}

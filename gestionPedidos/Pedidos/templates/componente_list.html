@@ -11,8 +11,6 @@
         <ul>
             <li>
                 <a href="{% url 'componente_create' %}">Crear nuevo componente</a>
-
-
             </li>
             <li>
                 <a href="{% url 'listado_componentes' %}">Listado componentes</a>
@@ -31,21 +29,17 @@
     <table>
         <thead>
             <tr>
-
                 <th>ID</th>
                 <th>Codigo Referencia</th>
                 <th>Modelo</th>
                 <th>Marca</th>
                 <th>Ver Detalle</th>
-
-
             </tr>
         </thead>
 
         <tbody>
             {% for componente in listado_componentes %}
             <tr>
-
                 <td>{{ componente.id }}</td>
                 <td>{{ componente.componentes_codigo_referencia }}</td>
                 <td>{{ componente.nombre_modelo }}</td>
@@ -53,7 +47,6 @@
                 <td><a href="{% url 'componente_detail' pk=componente.id %}">Detalle</a></td>
                 {% endfor %}
             </tr>
-
             {% else %}
             <p>No hay componentes creados.</p>
             {% endif %}

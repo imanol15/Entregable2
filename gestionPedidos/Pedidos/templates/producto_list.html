@@ -12,8 +12,6 @@
         <ul>
             <li>
                 <a href="{% url 'producto_create' %}">Crear nuevo producto</a>
-
-
             </li>
             <li>
                 <a href="{% url 'listado_productos' %}">Listado producto</a>
@@ -35,7 +33,6 @@
     <table>
         <thead>
             <tr>
-
                 <th>ID</th>
                 <th>Referencia</th>
                 <th>Precio</th>
@@ -44,15 +41,12 @@
                 <th>Categoria</th>
                 <th>Componentes</th>
                 <th>Ver Detalle</th>
-
-
             </tr>
         </thead>
 
         <tbody>
             {% for producto in listado_productos %}
             <tr>
-
                 <td>{{ producto.id }}</td>
                 <td>{{ producto.referencia }}</td>
                 <td>{{ producto.precio }}</td>

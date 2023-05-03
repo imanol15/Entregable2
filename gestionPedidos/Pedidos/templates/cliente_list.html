@@ -13,13 +13,10 @@
         <ul>
             <li>
                 <a href="{% url 'create_cliente' %}">Crear nuevo cliente</a>
-
-
             </li>
             <li>
                 <a href="{% url 'listado_clientes' %}">Listado cliente</a>
             </li>
-
         </ul>
     </div>
 </div>
@@ -47,7 +44,6 @@
         <tbody>
             {% for cliente in listado_clientes %}
             <tr>
-
                 <td>{{ cliente.id }}</td>
                 <td>{{ cliente.cif }}</td>
                 <td>{{ cliente.nombre_empresa }}</td>
