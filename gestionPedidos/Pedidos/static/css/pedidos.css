@@ -493,7 +493,34 @@ footer {
 
 }
 
+.scroll header {
+  display: none;
+}
 
+.scroll main {
+  margin-top: 0;
+}
+
+.scroll .hero-image {
+  height: 100vh;
+  background-image: url(../imagenes/Logo.png);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll .hero-image h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.scroll .hero-image .hero-description {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
 /* ejemplo de tamaño de pantalla*/
 @media (max-width: 600px) {
 
@@ -536,33 +563,4 @@ footer {
   .red-social {
     margin-top: 20px;
   }
-}
-
-.scroll header {
-  display: none;
-}
-
-.scroll main {
-  margin-top: 0;
-}
-
-.scroll .hero-image {
-  height: 100vh;
-  background-image: url(../imagenes/Logo.png);
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.scroll .hero-image h1 {
-  font-size: 4rem;
-  margin: 0;
-}
-
-.scroll .hero-image .hero-description {
-  font-size: 1.5rem;
-  margin-top: 2rem;
 }

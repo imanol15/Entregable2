@@ -37,11 +37,10 @@
                 <th>Fecha</th>
                 <th>Cliente</th>
                 <th>Precio Total</th>
-                <th>Producto referencia</th>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Ver Detalle</th>
-                
+                <th>Borrar</th>
+                <th>Editar</th>
+                <th>Ver Detalle del producto</th>
+
 
 
             </tr>
@@ -56,25 +55,13 @@
                 <td>{{ pedido.fecha }}</td>
                 <td>{{ pedido.cliente}}</td>
                 <td>{{ pedido.preciototal}}</td>
-                <td>{% for producto_pedido in pedido.productopedido_set.all %}
-                    {{ producto_pedido.producto_solicitado.referencia }}
-                    {% endfor %}</td>
+                <td><a href="{% url 'pedido_delete' pk=pedido.id %}">Borrar</a></td>
+                <td><a href="{% url 'pedido_edit' pk=pedido.id %}">Editar</a></td>
+                <td><a href="{% url 'pedido_detail' pk=pedido.id %}">Detalle del producto</a></td>
 
-                <td>{% for producto_pedido in pedido.productopedido_set.all %}
-                    {{ producto_pedido.producto_solicitado.nombre }}
-                    {% endfor %}</td>
-                <td>
-
-                    {% for producto_pedido in pedido.productopedido_set.all %}
-                    {{ producto_pedido.cantidad }}
-                    {% endfor %}
-
-                </td>
-                <td><a href="{% url 'pedido_detail' pk=pedido.id %}">Detalle</a></td>
                 
-                {% endfor %}
             </tr>
-
+            {% endfor %}
             {% else %}
             <p>No hay pedidos creados.</p>
             {% endif %}

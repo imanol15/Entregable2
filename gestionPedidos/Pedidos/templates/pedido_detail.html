@@ -6,55 +6,41 @@
     <div class="listado-header">
         <h1>Detalle del pedido</h1>
     </div>
+    {% if pedido.producto.all %}
     <div class="listado-tabla">
         <table>
             <thead>
                 <tr>
-
-                    <th>ID</th>
-                    <th>Codigo Referencia</th>
-                    <th>Fecha</th>
-                    <th>Cliente</th>
-                    <th>Precio total</th>
                     <th>Producto referencia</th>
                     <th>Producto</th>
                     <th>Cantidad</th>
-                    <th>Borrar</th>
-                    <th>Editar</th>
-
+                    <th>Precio Unitario</th>
+                    <th>Volver</th>
                 </tr>
             </thead>
+            {% for producto_pedido in pedido.productopedido_set.all %}
             <tbody>
-                {% if pedido %}
-
                 <tr>
-                    <td>{{ pedido.id }}</td>
-                    <td>{{ pedido.codigo_referencia }}</td>
-                    <td>{{ pedido.fecha }}</td>
-                    <td>{{ pedido.cliente}}</td>
-                    <td>{{ pedido.preciototal}}</td>
-                    <td>{% for producto_pedido in pedido.productopedido_set.all %}
-                        {{ producto_pedido.producto_solicitado.referencia }}
-                        {% endfor %}</td>
-                    <td>{% for producto_pedido in pedido.productopedido_set.all %}
-                        {{ producto_pedido.producto_solicitado.nombre }}
-                        {% endfor %}</td>
                     <td>
-
-                        {% for producto_pedido in pedido.productopedido_set.all %}
-                        {{ producto_pedido.cantidad }}
-                        {% endfor %}
-
+                        {{ producto_pedido.producto_solicitado.referencia }}
                     </td>
-                    <td><a href="{% url 'pedido_delete' pk=pedido.id %}">Borrar</a></td>
-                    <td><a href="{% url 'pedido_edit' pk=pedido.id %}">Editar</a></td>
-
+                    <td>
+                        {{ producto_pedido.producto_solicitado.nombre }}
+                    </td>
+                    <td>
+                        {{ producto_pedido.cantidad }}
+                    </td>
+                    <td>
+                        {{ producto_pedido.producto_solicitado.precio }}
+                    </td>
+                    <td><a href="{% url 'listado_pedidos'%}">Volver</a></td>
                 </tr>
-
-                {% endif %}
             </tbody>
+            {% endfor %}
         </table>
     </div>
+    {% else %}
+    <p>No hay productos asociados.</p>
+    {% endif %}
 </div>
-
 {% endblock %}
