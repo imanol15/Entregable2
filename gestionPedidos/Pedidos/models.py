@@ -55,7 +55,7 @@ class Pedido(models.Model):
 class ProductoPedido(models.Model):
     producto_solicitado = models.ForeignKey(Producto, on_delete=models.CASCADE)
     pedido_solicitado = models.ForeignKey(Pedido, on_delete=models.CASCADE)
-    cantidad = models.PositiveIntegerField(null=True)
+    cantidad = models.PositiveIntegerField()
     def __str__(self):
         return f"{self.producto_solicitado} - {self.pedido_solicitado} - {self.cantidad} " 
 
