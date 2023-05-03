@@ -114,7 +114,7 @@ class ComponenteDetailView(DetailView):
 #Borrado del componente
 class ComponenteDeleteView(DeleteView):
     model = Componente
-    success_url = reverse_lazy('listado_componente')
+    success_url = reverse_lazy('listado_componentes')
     template_name = 'componente_delete.html'
 #Actualizacion del componente
 class ComponenteUpdateView(UpdateView):
