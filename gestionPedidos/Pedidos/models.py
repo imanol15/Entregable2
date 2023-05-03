@@ -43,13 +43,6 @@ class Pedido(models.Model):
     def __str__(self):
         return self.codigo_referencia 
 
-    def obtener_cantidades(self):
-        cantidades = []
-        productos_pedido = ProductoPedido.objects.filter(pedido_solicitado=self)
-        for p in productos_pedido:
-            cantidades.append(p.cantidad)
-        return cantidades 
-
 
 # Hemos hecho una conexion n-m para producto pedido, es decir, varios pedidos pueden ser de varios productos y viceversa
 class ProductoPedido(models.Model):
