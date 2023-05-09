@@ -9,14 +9,20 @@ class Componente(models.Model):
     def __str__(self):
         return self.nombre_modelo
 
+# Clase Categiria
+class Categoria(models.Model):
+    categoria = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.categoria
+          
 # Clase producto
 class Producto(models.Model):
     referencia = models.CharField(max_length=50, unique=True)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
-    categoria = models.CharField(max_length=50)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     componentes = models.ForeignKey(Componente, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -53,7 +59,4 @@ class ProductoPedido(models.Model):
         return f"{self.producto_solicitado} - {self.pedido_solicitado} - {self.cantidad} " 
 
 
-    
-
-          
     

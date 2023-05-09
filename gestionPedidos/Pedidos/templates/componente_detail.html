@@ -28,8 +28,8 @@
                     <td>{{ componente.componentes_codigo_referencia }}</td>
                     <td>{{ componente.nombre_modelo }}</td>
                     <td>{{ componente.marca}}</td>
-                    <td><a href="{% url 'componente_delete' pk=componente.id %}">Borrar</a></td>
-                    <td><a href="{% url 'componente_edit' pk=componente.id %}">Editar</a></td>
+                    <td><a class="datos" href="{% url 'componente_delete' pk=componente.id %}">Borrar</a></td>
+                    <td><a class="datos" href="{% url 'componente_edit' pk=componente.id %}">Editar</a></td>
                 </tr>
 
                 {% endif %}

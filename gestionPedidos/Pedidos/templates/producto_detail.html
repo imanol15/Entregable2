@@ -33,8 +33,8 @@
                     <td>{{ producto.descripcion}}</td>
                     <td>{{ producto.categoria}}</td>
                     <td>{{ producto.componentes}}</td>
-                    <td><a href="{% url 'producto_delete' pk=producto.id %}">Borrar</a></td>
-                    <td><a href="{% url 'producto_edit' pk=producto.id %}">Editar</a></td>    
+                    <td><a class="datos" href="{% url 'producto_delete' pk=producto.id %}">Borrar</a></td>
+                    <td><a class="datos" href="{% url 'producto_edit' pk=producto.id %}">Editar</a></td>    
                 </tr>
                 {% endif %}
 

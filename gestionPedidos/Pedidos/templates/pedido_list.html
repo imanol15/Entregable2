@@ -3,29 +3,17 @@
 {% block titulo %}Listado de pedidos{% endblock %}
 
 {% block contenido %}
-<div class="menu">
-    <div class="menu-titulo">
-        <h1>Menu</h1>
-    </div>
-    <div class="menu-contenido">
-        <ul>
-            <li>
-                <a href="{% url 'pedido_create' %}">Crear nuevo pedido</a>
-            </li>
-            <li>
-                <a href="{% url 'listado_pedidos' %}">Listado pedido</a>
-            </li>
 
-        </ul>
-    </div>
 
-</div>
 
 <div class="listado-header">
     <h1>Listado del Pedidos</h1>
 </div>
+
 <div class="listado-tabla">
+
     {% if listado_pedidos %}
+
     <table>
         <thead>
             <tr>
@@ -34,9 +22,10 @@
                 <th>Fecha</th>
                 <th>Cliente</th>
                 <th>Precio Total</th>
-                <th>Borrar</th>
-                <th>Editar</th>
-                <th>Ver Detalle del producto</th>
+                <th>Producto</th>
+                <th>Detalle</th>
+
+
             </tr>
         </thead>
 
@@ -46,17 +35,40 @@
                 <td>{{ pedido.id }}</td>
                 <td>{{ pedido.codigo_referencia }}</td>
                 <td>{{ pedido.fecha }}</td>
-                <td>{{ pedido.cliente}}</td>
+                <td><a class="boton-navegacion"
+                        href="{% url 'cliente_detail' pk=pedido.cliente.id %}">{{pedido.cliente}}</a></td>
                 <td>{{ pedido.preciototal}}</td>
-                <td><a href="{% url 'pedido_delete' pk=pedido.id %}">Borrar</a></td>
-                <td><a href="{% url 'pedido_edit' pk=pedido.id %}">Editar</a></td>
-                <td><a href="{% url 'pedido_detail' pk=pedido.id %}">Detalle del producto</a></td>  
+                <td>{{ pedido.producto}}</td>
+                <td><a class="datos" href="{% url 'pedido_detail' pk=pedido.id %}">Detalle</a></td>
+
             </tr>
+
             {% endfor %}
             {% else %}
             <p>No hay pedidos creados.</p>
             {% endif %}
         </tbody>
+
     </table>
+
 </div>
+{% if is_paginated %}
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
+        <span class="current-page">
+            Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+        </span>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+        {% endif %}
+    </span>
+</div>
+{% endif %}
+<div class="crear-pedido">
+    <a class="crear" href="{% url 'pedido_create' %}">Crear nuevo pedido</a>
+</div>
+
 {% endblock %}

@@ -30,8 +30,8 @@
                     <td>{{ cliente.nombre_empresa }}</td>
                     <td>{{ cliente.direccion }}</td>
                     <td>{{ cliente.datos_contacto }}</td>
-                    <td><a href="{% url 'cliente_delete' pk=cliente.id %}">Borrar</a></td>
-                    <td><a href="{% url 'cliente_edit' pk=cliente.id %}">Editar</a></td>
+                    <td><a class="datos" href="{% url 'cliente_delete' pk=cliente.id %}">Borrar</a></td>
+                    <td><a class="datos" href="{% url 'cliente_edit' pk=cliente.id %}">Editar</a></td>
 
                 </tr>
 

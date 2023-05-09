@@ -4,23 +4,6 @@
 
 {% block contenido %}
 
-<div class="menu">
-
-    <div class="menu-titulo">
-        <h1>Menu</h1>
-    </div>
-    <div class="menu-contenido">
-        <ul>
-            <li>
-                <a href="{% url 'create_cliente' %}">Crear nuevo cliente</a>
-            </li>
-            <li>
-                <a href="{% url 'listado_clientes' %}">Listado cliente</a>
-            </li>
-        </ul>
-    </div>
-</div>
-
 <div class="listado-header">
     <h1>Listado del Cliente</h1>
 </div>
@@ -29,18 +12,14 @@
     <table>
         <thead>
             <tr>
-
                 <th>ID</th>
                 <th>CIF</th>
                 <th>Nombre de empresa</th>
                 <th>Dirección</th>
                 <th>Datos de contacto</th>
                 <th>Ver Detalle</th>
-
-
             </tr>
         </thead>
-
         <tbody>
             {% for cliente in listado_clientes %}
             <tr>
@@ -49,14 +28,31 @@
                 <td>{{ cliente.nombre_empresa }}</td>
                 <td>{{ cliente.direccion }}</td>
                 <td>{{ cliente.datos_contacto }}</td>
-                <td><a href="{% url 'cliente_detail' pk=cliente.id %}">Detalle</a></td>
-                {% endfor %}
+                <td><a class="datos" href="{% url 'cliente_detail' pk=cliente.id %}">Detalle</a></td>
             </tr>
-
-            {% else %}
-            <p>No hay clientes creados.</p>
-            {% endif %}
+            {% endfor %}
         </tbody>
     </table>
+    {% else %}
+    <p>No hay clientes creados.</p>
+    {% endif %}
+</div>
+{% if is_paginated %}
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
+        <span class="current-page">
+            Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+        </span>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+        {% endif %}
+    </span>
+</div>
+{% endif %}
+<div class="crear-cliente">
+    <a class="crear" href="{% url 'create_cliente' %}">Crear nuevo cliente</a>
 </div>
 {% endblock %}

@@ -3,27 +3,8 @@
 {% block titulo %}Listado de productos{% endblock %}
 
 {% block contenido %}
-<div class="menu">
-
-    <div class="menu-titulo">
-        <h1>Menu</h1>
-    </div>
-    <div class="menu-contenido">
-        <ul>
-            <li>
-                <a href="{% url 'producto_create' %}">Crear nuevo producto</a>
-            </li>
-            <li>
-                <a href="{% url 'listado_productos' %}">Listado producto</a>
-            </li>
-            <li>
-                <a href="{% url 'ProductoPedido_create' %}">Crear Productos Pedidos</a>
-            </li>
-        </ul>
-    </div>
 
 
-</div>
 
 <div class="listado-header">
     <h1>Listado del Productos</h1>
@@ -53,8 +34,8 @@
                 <td>{{ producto.nombre}}</td>
                 <td>{{ producto.descripcion}}</td>
                 <td>{{ producto.categoria}}</td>
-                <td>{{ producto.componentes}}</td>
-                <td><a href="{% url 'producto_detail' pk=producto.id %}">Detalle</a></td>
+                <td><a class="boton-navegacion" href="{% url 'componente_detail' pk=producto.componentes.id %}">{{producto.componentes}}</a></td>
+                <td><a class="datos" href="{% url 'producto_detail' pk=producto.id %}">Detalle</a></td>
                 {% endfor %}
             </tr>
 
@@ -63,5 +44,24 @@
             {% endif %}
         </tbody>
     </table>
+</div>
+{% if is_paginated %}
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
+        <span class="current-page">
+            Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+        </span>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+        {% endif %}
+    </span>
+</div>
+{% endif %}
+<div class="crear-producto">
+    <a class="crear" href="{% url 'producto_create' %}">Crear nuevo producto</a>
+    <a class="crear" href="{% url 'ProductoPedido_create' %}">Añadir productos al pedido</a>
 </div>
 {% endblock %}

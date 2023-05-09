@@ -1,6 +1,8 @@
 body {
   background-color: #000;
   color: #ffffff;
+  
+  
 }
 
 
@@ -279,6 +281,8 @@ footer {
   background-color: #0062cc;
 }
 
+
+
 .delete-object {
   display: flex;
   flex-direction: column;
@@ -286,7 +290,6 @@ footer {
   justify-content: center;
   height: 100vh;
   background-color: #f8f9fa;
-
 }
 
 .delete-form {
@@ -295,9 +298,7 @@ footer {
   padding: 20px;
   background-color: #000000;
   border-radius: 5px;
-  box-shadow: 0px 0px 5px #ccc;
   text-align: center;
-
 }
 
 .delete-form p {
@@ -312,6 +313,9 @@ footer {
   font-size: 16px;
   text-decoration: none;
   display: inline-block;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .btn-delete {
@@ -329,25 +333,68 @@ footer {
 
 .btn-delete:hover,
 .btn-cancel:hover {
-  /* Esto hace que los botones sobresalgan*/
   transform: translateY(-3px);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilos para la tabla */
-.listado-header {
-  margin-bottom: 20px;
-  margin-left: 30px;
-  color: #fff;
+/* Cambiar el cursor al pasar sobre los botones */
+.btn-delete:hover,
+.btn-cancel:hover {
+  cursor: pointer;
 }
 
+
+
+
+/* Estilos para la tabla */
+.listado-header {
+  margin-top: -570px;
+  color: #fff;
+  text-align: center;
+  
+}
+.crear-producto {
+  margin-top: 25px;
+  margin-left: 250px;
+}
+.crear-cliente {
+  margin-top: 25px;
+  margin-left: 300px;
+}
+.crear-componente {
+  margin-top: 25px;
+  margin-left: 400px;
+}
+.crear-pedido {
+  margin-top: 25px;
+  margin-left: 250px;
+}
+
+.crear  {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #04AA6D;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  transition: all 0.2s ease;
+}
+
+.crear:hover {
+  background-color: #3ca040;
+  transform: scale(1.05);
+}
 .listado-tabla {
   width: 100%;
   border-collapse: collapse;
-  margin-left: 30px;
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 10px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
 }
 
 .listado-tabla th,
@@ -365,7 +412,7 @@ footer {
   text-decoration: none;
 }
 
-.listado-tabla a {
+.datos  {
   display: inline-block;
   padding: 5px 10px;
   background-color: #04AA6D;
@@ -376,62 +423,27 @@ footer {
   transition: all 0.2s ease;
 }
 
-.listado-tabla a:hover {
+.datos:hover {
   background-color: #3ca040;
   transform: scale(1.05);
 }
 
-/* Estilos para el título "Menu" */
-
-.menu {
-  margin-top: -570px;
-  margin-left: 30px;
-
-}
-
-
-
-.menu-titulo h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-
-}
-
-/* Estilos para el contenedor principal del menú */
-.menu-titulo,
-.menu-contenido {
-  margin: 0;
-  padding: 0;
-
-}
-
-/* Estilos para el título "Menu" */
-.menu-titulo h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-/* Estilos para los enlaces del menú */
-.menu-contenido ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.menu-contenido li a {
-  display: block;
-  font-size: 1.2rem;
+.boton-navegacion  {
   text-decoration: none;
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.boton-navegacion:hover {
+  color: #f1c40f;
 }
 
-/* Estilos para los enlaces del menú al pasar el mouse */
-.menu-contenido li a:hover {
-  background-color: #dddddda9;
+.centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
 
 
 
@@ -521,6 +533,36 @@ footer {
   font-size: 1.5rem;
   margin-top: 2rem;
 }
+/* Clase para la paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* Clase para los botones */
+.pagination a {
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 0 4px;
+}
+
+/* Clase para el botón activo */
+.pagination .active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Clase para el botón desactivado */
+.pagination .disabled {
+  color: #ccc;
+  pointer-events: none;
+}
+
 /* ejemplo de tamaño de pantalla*/
 @media (max-width: 600px) {
 

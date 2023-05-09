@@ -20,7 +20,7 @@ class PedidoListView(ListView):
     queryset = Pedido.objects.order_by('id')
     context_object_name = 'listado_pedidos'
     template_name = 'pedido_list.html'
-    
+    paginate_by = 3 
     
 #Creacion Pedidos
 class PedidoCreateView(CreateView):
@@ -66,6 +66,8 @@ class ClienteListView(ListView):
     queryset = Cliente.objects.order_by('id')
     context_object_name = 'listado_clientes'
     template_name = 'cliente_list.html'
+    paginate_by = 3  
+
     
 
 # Detalle de cada Cliente
@@ -105,6 +107,7 @@ class ComponenteListView(ListView):
     queryset = Componente.objects.order_by('id')
     context_object_name = 'listado_componentes'
     template_name = 'componente_list.html'
+    paginate_by = 3 
     
 
 # Detalle de cada Componente
@@ -137,6 +140,7 @@ class ProductoListView(ListView):
     queryset = Producto.objects.order_by('id')
     context_object_name = 'listado_productos'
     template_name = 'producto_list.html'
+    paginate_by = 3 
     
     
 #Creacion Productos
