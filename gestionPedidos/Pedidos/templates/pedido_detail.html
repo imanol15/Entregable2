@@ -11,6 +11,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Pedido referencia</th>
                     <th>Producto referencia</th>
                     <th>Producto</th>
                     <th>Cantidad</th>
@@ -21,6 +22,9 @@
             {% for producto_pedido in pedido.productopedido_set.all %}
             <tbody>
                 <tr>
+                    <td>
+                        {{ producto_pedido.pedido_solicitado.codigo_referencia }}
+                    </td>
                     <td>
                         {{ producto_pedido.producto_solicitado.referencia }}
                     </td>

@@ -10,6 +10,7 @@ urlpatterns = [
     #Urls de clientes
     path('clientes/', views.ClienteListView.as_view(), name='listado_clientes'),
     path('clientes/<int:pk>/', views.ClienteDetailView.as_view(), name='cliente_detail'),
+    path('clientes/<cliente_id>/pedido', views.show_pedido, name='cliente_pedido_detail'),
     path('clientes/create/', views.ClienteCreateView.as_view(), name='create_cliente'),
     path('clientes/<int:pk>/borrar/', views.ClienteDeleteView.as_view(), name='cliente_delete'),
     path('clientes/<int:pk>/editar/', views.ClienteUpdateView.as_view(), name='cliente_edit'),
@@ -22,6 +23,7 @@ urlpatterns = [
     #Urls de componente
     path('componentes/', views.ComponenteListView.as_view(), name='listado_componentes'),
     path('componentes/<int:pk>', views.ComponenteDetailView.as_view(), name='componente_detail'),
+    path('componentes/<componente_id>/producto', views.show_producto, name='componente_producto_detail'),
     path('componentes/create/', views.ComponenteCreateView.as_view(), name='componente_create'),
     path('componentes/<int:pk>/borrar/', views.ComponenteDeleteView.as_view(), name='componente_delete'),
     path('componentes/<int:pk>/editar/', views.ComponenteUpdateView.as_view(), name='componente_edit'),
@@ -31,9 +33,12 @@ urlpatterns = [
     path('productos/create/', views.ProductoCreateView.as_view(), name='producto_create'),
     path('productos/<int:pk>/borrar/', views.ProductoDeleteView.as_view(), name='producto_delete'),
     path('productos/<int:pk>/editar/', views.ProductoUpdateView.as_view(), name='producto_edit'),
-    #Urls de precio
+    #Urls de cantidad
     path('ProductoPedido/create/', views.ProductoPedidoCreateView.as_view(), name='ProductoPedido_create'), 
+    #Urls de componente
+    path('ProductoComponente/create/', views.ProductoComponenteCreateView.as_view(), name='ProductoComponente_create'), 
 ]
+
 
 
 

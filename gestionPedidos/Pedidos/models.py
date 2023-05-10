@@ -23,10 +23,10 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    componentes = models.ForeignKey(Componente, on_delete=models.CASCADE)
+    componentes = models.ManyToManyField(Componente)
 
     def __str__(self):
-        return self.nombre
+        return f"{self.referencia}" 
 
 #Clase cliente    
 class Cliente(models.Model):
@@ -58,5 +58,9 @@ class ProductoPedido(models.Model):
     def __str__(self):
         return f"{self.producto_solicitado} - {self.pedido_solicitado} - {self.cantidad} " 
 
-
+class ProductoComponente(models.Model):
+    producto_solicitado = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    componente_solicitado = models.ForeignKey(Componente, on_delete=models.CASCADE)
+    def __str__(self):
+        return f"{self.producto_solicitado} - {self.componente_solicitado}"
     

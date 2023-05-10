@@ -1,9 +1,10 @@
 
-from .models import Producto, Pedido,Componente, Cliente,ProductoPedido
+from .models import Producto, Pedido,Componente, Cliente,ProductoPedido,ProductoComponente
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
-from Pedidos.forms import PedidoForm, ClienteForm,ComponenteForm,ProductoForm,ProductoPedidoForm
+from Pedidos.forms import PedidoForm, ClienteForm,ComponenteForm,ProductoForm,ProductoPedidoForm,ProductoComponenteForm
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
 
 # LLamada a la pagina principal
 def index(req):    
@@ -13,6 +14,8 @@ def index(req):
 class PedidoDetailView(DetailView):
     model = Pedido
     template_name = 'pedido_detail.html'
+
+
 
 # Listado de Pedidos
 class PedidoListView(ListView):
@@ -74,6 +77,8 @@ class ClienteListView(ListView):
 class ClienteDetailView(DetailView):
     model = Cliente
     template_name = 'cliente_detail.html'
+
+
 #Borrado del cliente
 class ClienteDeleteView(DeleteView):
     model = Cliente
@@ -170,6 +175,17 @@ class ProductoPedidoCreateView(CreateView):
     model = ProductoPedido
     form_class = ProductoPedidoForm
     template_name = 'productopedido_create.html'
+    success_url = reverse_lazy('listado_pedidos')    
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+#Creacion ProductoComponente
+class ProductoComponenteCreateView(CreateView):
+    model = ProductoComponente
+    form_class = ProductoComponenteForm
+    template_name = 'productocomponente_create.html'
     success_url = reverse_lazy('listado_productos')    
 
     def form_valid(self, form):
@@ -177,7 +193,15 @@ class ProductoPedidoCreateView(CreateView):
         return super().form_valid(form)
 
 
+def show_producto(request, componente_id):
+    componente = get_object_or_404(Componente, pk=componente_id)
+    producto =  componente.producto_set.all()
+    context = { 'componente': componente, 'listado_productos' : producto }
+    return render(request, 'producto_list.html', context)
 
 
-
-
+def show_pedido(request, cliente_id):
+    cliente = get_object_or_404(Cliente, pk=cliente_id)
+    pedido =  cliente.pedido_set.all()
+    context = { 'cliente': cliente, 'listado_pedidos' : pedido }
+    return render(request, 'pedido_list.html', context)

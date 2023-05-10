@@ -3,7 +3,6 @@
 {% block titulo %}Listado de clientes{% endblock %}
 
 {% block contenido %}
-
 <div class="listado-header">
     <h1>Listado del Cliente</h1>
 </div>
@@ -18,6 +17,7 @@
                 <th>Dirección</th>
                 <th>Datos de contacto</th>
                 <th>Ver Detalle</th>
+                <th>Ver pedidos del cliente</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +29,7 @@
                 <td>{{ cliente.direccion }}</td>
                 <td>{{ cliente.datos_contacto }}</td>
                 <td><a class="datos" href="{% url 'cliente_detail' pk=cliente.id %}">Detalle</a></td>
+                <td><a class="datos" href="/clientes/{{cliente.id}}/pedido">Mostrar sus pedidos</a></td>
             </tr>
             {% endfor %}
         </tbody>
@@ -37,7 +38,7 @@
     <p>No hay clientes creados.</p>
     {% endif %}
 </div>
-{% if is_paginated %}
+{% if page_obj.has_other_pages %}
 <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
@@ -52,6 +53,7 @@
     </span>
 </div>
 {% endif %}
+</div>
 <div class="crear-cliente">
     <a class="crear" href="{% url 'create_cliente' %}">Crear nuevo cliente</a>
 </div>

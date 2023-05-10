@@ -38,7 +38,10 @@
                 <td><a class="boton-navegacion"
                         href="{% url 'cliente_detail' pk=pedido.cliente.id %}">{{pedido.cliente}}</a></td>
                 <td>{{ pedido.preciototal}}</td>
-                <td>{{ pedido.producto}}</td>
+                <td>{% for producto_pedido in pedido.productopedido_set.all %}
+                    {{ producto_pedido.producto_solicitado.nombre }}
+                    {% endfor %}
+                </td>
                 <td><a class="datos" href="{% url 'pedido_detail' pk=pedido.id %}">Detalle</a></td>
 
             </tr>
@@ -69,6 +72,7 @@
 {% endif %}
 <div class="crear-pedido">
     <a class="crear" href="{% url 'pedido_create' %}">Crear nuevo pedido</a>
+    <a class="crear" href="{% url 'ProductoPedido_create' %}">Añadir productos al pedido</a>
 </div>
 
 {% endblock %}

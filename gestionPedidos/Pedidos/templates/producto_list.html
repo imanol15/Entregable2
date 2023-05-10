@@ -19,8 +19,7 @@
                 <th>Precio</th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
-                <th>Categoria</th>
-                <th>Componentes</th>
+                <th>Componente</th>
                 <th>Ver Detalle</th>
             </tr>
         </thead>
@@ -33,8 +32,10 @@
                 <td>{{ producto.precio }}</td>
                 <td>{{ producto.nombre}}</td>
                 <td>{{ producto.descripcion}}</td>
-                <td>{{ producto.categoria}}</td>
-                <td><a class="boton-navegacion" href="{% url 'componente_detail' pk=producto.componentes.id %}">{{producto.componentes}}</a></td>
+                <td>{% for producto_componente in producto.productocomponente_set.all %}
+                    {{producto_componente.componente_solicitado.nombre_modelo }}
+                    {% endfor %}
+                </td>
                 <td><a class="datos" href="{% url 'producto_detail' pk=producto.id %}">Detalle</a></td>
                 {% endfor %}
             </tr>
@@ -62,6 +63,6 @@
 {% endif %}
 <div class="crear-producto">
     <a class="crear" href="{% url 'producto_create' %}">Crear nuevo producto</a>
-    <a class="crear" href="{% url 'ProductoPedido_create' %}">Añadir productos al pedido</a>
+    <a class="crear" href="{% url 'ProductoComponente_create' %}">Añadir componentes al producto</a>
 </div>
 {% endblock %}
