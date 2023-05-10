@@ -18,7 +18,6 @@
                 <th>Modelo</th>
                 <th>Marca</th>
                 <th>Ver Detalle</th>
-                <th>Mostrar producto de los productos</th>
             </tr>
         </thead>
 
@@ -30,7 +29,6 @@
                 <td>{{ componente.nombre_modelo }}</td>
                 <td>{{ componente.marca}}</td>
                 <td><a class="datos" href="{% url 'componente_detail' pk=componente.id %}">Detalle</a></td>
-                <td><a class="datos" href="/componentes/{{componente.id}}/producto">Mostrar sus productos</a></td>
                 {% endfor %}
             </tr>
 
