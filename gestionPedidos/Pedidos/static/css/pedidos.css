@@ -85,6 +85,40 @@ header {
   color: #f1c40f;
 }
 
+
+/*Login y contraseña **************/
+
+.navbar-collapse {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar-form {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-form .form-group {
+  margin-right: 10px;
+}
+
+.navbar-form input[type="text"],
+.navbar-form input[type="password"] {
+  width: 150px;
+  height: 30px;
+  padding: 0 10px;
+}
+
+.navbar-form .btn {
+  background-color: green;
+  color: white;
+  border: none;
+  height: 30px;
+  padding: 0 10px;
+  margin-left: 0px;
+  margin-right: 20px;
+}
+
 /* Imagen del header */
 .hero-image {
   background-image: url('/static/imagenes/logo4.jpg');
