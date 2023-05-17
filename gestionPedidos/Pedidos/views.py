@@ -1,7 +1,7 @@
 
-from .models import Producto, Pedido,Componente, Cliente,ProductoPedido,ProductoComponente
+from .models import Producto, Pedido,Componente, Cliente,ProductoPedido
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
-from Pedidos.forms import PedidoForm, ClienteForm,ComponenteForm,ProductoForm,ProductoPedidoForm,ProductoComponenteForm
+from Pedidos.forms import PedidoForm, ClienteForm,ComponenteForm,ProductoForm,ProductoPedidoForm
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
@@ -70,6 +70,15 @@ class ClienteListView(ListView):
     context_object_name = 'listado_clientes'
     template_name = 'cliente_list.html'
     paginate_by = 3  
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        cif_query = self.request.GET.get('cif')
+
+        if cif_query:
+            queryset = queryset.filter(cif__icontains=cif_query)
+
+        return queryset
 
     
 
@@ -113,6 +122,14 @@ class ComponenteListView(ListView):
     context_object_name = 'listado_componentes'
     template_name = 'componente_list.html'
     paginate_by = 3 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        componentes_codigo_referencia_query = self.request.GET.get('componentes_codigo_referencia')
+
+        if componentes_codigo_referencia_query:
+            queryset = queryset.filter(componentes_codigo_referencia__icontains=componentes_codigo_referencia_query)
+
+        return queryset
     
 
 # Detalle de cada Componente
@@ -181,23 +198,14 @@ class ProductoPedidoCreateView(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-#Creacion ProductoComponente
-class ProductoComponenteCreateView(CreateView):
-    model = ProductoComponente
-    form_class = ProductoComponenteForm
-    template_name = 'productocomponente_create.html'
-    success_url = reverse_lazy('listado_productos')    
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
 
 
-def show_producto(request, componente_id):
-    componente = get_object_or_404(Componente, pk=componente_id)
-    producto =  componente.producto_set.all()
-    context = { 'componente': componente, 'listado_productos' : producto }
-    return render(request, 'producto_list.html', context)
+
+def show_producto(request, producto_id):
+    producto = get_object_or_404(Producto, pk=producto_id)
+    componente =  producto.componente_set.all()
+    context = { 'producto': producto, 'listado_componente' : componente }
+    return render(request, 'componente_list.html', context)
 
 
 def show_pedido(request, cliente_id):
@@ -205,3 +213,4 @@ def show_pedido(request, cliente_id):
     pedido =  cliente.pedido_set.all()
     context = { 'cliente': cliente, 'listado_pedidos' : pedido }
     return render(request, 'pedido_list.html', context)
+

@@ -4,16 +4,17 @@
 <div class="container">
     <h1>Crear Producto</h1>
 
-    <form method="post">
+    <form method="post" onsubmit="return validarFormulario()">
         {% csrf_token %}
         <div class="form-group">
             {{ form.referencia.label_tag }}
             {{ form.referencia }}
         </div>
-        <div class="form-group">
+        <div class="form-group" id="id_precio">
             {{ form.precio.label_tag }}
             {{ form.precio }}
         </div>
+        <p id="resultprecio" style="color: red"> </p>
         <div class="form-group">
             {{ form.nombre.label_tag }}
             {{ form.nombre }}
@@ -31,7 +32,23 @@
             {{ form.componentes }}
         </div>
         
+        
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </div>
+<script>
+    function validarFormulario() {
+      // Obtener el valor del campo precio total
+      var precioTotal = parseFloat(document.getElementById('id_precio').value);
+      
+      // Comprobar si el precio total es un número positivo
+      if (precioTotal <= 0 || isNaN(precioTotal)) {
+        document.getElementById('resultprecio').innerHTML = "El precio debe ser un número positivo.";
+        return false;
+      } else {
+        document.getElementById('resultprecio').innerHTML = "";
+        return true;
+      }
+    }
+  </script>
 {% endblock %}

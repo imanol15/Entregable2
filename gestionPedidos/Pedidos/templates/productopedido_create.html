@@ -1,25 +1,62 @@
 {% extends 'base.html' %}
-{% block titulo %} Creacion del producto {% endblock %}
+
+{% block titulo %}Creacion del producto{% endblock %}
+
 {% block contenido %}
 <div class="container">
-    <h1>Añadir productos al cliente</h1>
+  <h1>Añadir productos al pedido</h1>
 
-    <form method="post">
-        {% csrf_token %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.producto_solicitado.label_tag }}
+      {{ form.producto_solicitado }}
+    </div>
+    <div id="pedidoSolicitadoField" style="display: none;">
+      <div class="form-group">
+        {{ form.pedido_solicitado.label_tag }}
+        {{ form.pedido_solicitado }}
+      </div>
+      <div id="cantidadField" style="display: none;">
         <div class="form-group">
-            {{ form.producto_solicitado.label_tag }}
-            {{ form.producto_solicitado }}
+          {{ form.cantidad.label_tag }}
+          {{ form.cantidad }}
         </div>
-        <div class="form-group">
-            {{ form.pedido_solicitado.label_tag }}
-            {{ form.pedido_solicitado }}
-        </div>
-        <div class="form-group">
-            {{ form.cantidad.label_tag }}
-            {{ form.cantidad }}
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
 </div>
-{% endblock %}
 
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    var productoSolicitadoField = document.getElementById('id_producto_solicitado');
+    var pedidoSolicitadoField = document.getElementById('pedidoSolicitadoField');
+    var cantidadField = document.getElementById('cantidadField');
+
+    productoSolicitadoField.addEventListener('change', function() {
+      if (productoSolicitadoField.value !== '') {
+        pedidoSolicitadoField.style.display = 'block';
+      } else {
+        pedidoSolicitadoField.style.display = 'none';
+        cantidadField.style.display = 'none';
+      }
+    });
+
+    pedidoSolicitadoField.addEventListener('change', function() {
+      if (pedidoSolicitadoField.value !== '') {
+        cantidadField.style.display = 'block';
+      } else {
+        cantidadField.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<style>
+  #pedidoSolicitadoField {
+    margin-top: 10px;
+  }
+</style>
+
+{% endblock %}

@@ -8,6 +8,12 @@
 <div class="listado-header">
     <h1>Listado del Componentes</h1>
 </div>
+<div class="buscador">
+    <form method="GET">
+        <input type="text" name="componentes_codigo_referencia" placeholder="Buscar Codigo Refrencia">
+        <input type="submit" value="Buscar">
+    </form>
+</div>
 <div class="listado-tabla">
     {% if listado_componentes %}
     <table>

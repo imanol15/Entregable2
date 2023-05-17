@@ -1,16 +1,17 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block titulo %} Edit del cliente {% endblock %}
+{% block titulo %} Creacion del cliente {% endblock %}
 
 {% block contenido %}
 <div class="container">
-  <h1>Editar Cliente "{{ cliente.cif }}"</h1>
-  <form method="post">
+  <h1>Actualizar Cliente</h1>
+  <form method="post" onsubmit="return validarFormulario()">
     {% csrf_token %}
-    <div class="form-group">
+    <div class="form-group" id="'id_cif'">
       {{ form.cif.label_tag }}
       {{ form.cif }}
     </div>
+    <p id="resultcif" style="color: red"> </p>
     <div class="form-group">
       {{ form.nombre_empresa.label_tag }}
       {{ form.nombre_empresa }}
@@ -26,5 +27,4 @@
     <button type="submit" class="btn btn-primary">Actualizar</button>
   </form>
 </div>
-
 {% endblock %}

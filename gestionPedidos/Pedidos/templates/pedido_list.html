@@ -3,17 +3,12 @@
 {% block titulo %}Listado de pedidos{% endblock %}
 
 {% block contenido %}
-
-
-
 <div class="listado-header">
     <h1>Listado del Pedidos</h1>
 </div>
 
 <div class="listado-tabla">
-
     {% if listado_pedidos %}
-
     <table>
         <thead>
             <tr>
@@ -23,12 +18,11 @@
                 <th>Cliente</th>
                 <th>Precio Total</th>
                 <th>Producto</th>
+                <th>Borrar</th>
+                <th>Editar</th>
                 <th>Detalle</th>
-
-
             </tr>
         </thead>
-
         <tbody>
             {% for pedido in listado_pedidos %}
             <tr>
@@ -42,19 +36,18 @@
                     {{ producto_pedido.producto_solicitado.nombre }}
                     {% endfor %}
                 </td>
+                <td><a class="datos" href="{% url 'pedido_delete' pk=pedido.id %}">Borrar</a></td>
+                <td><a class="datos" href="{% url 'pedido_edit' pk=pedido.id %}">Editar</a></td>
                 <td><a class="datos" href="{% url 'pedido_detail' pk=pedido.id %}">Detalle</a></td>
-
             </tr>
-
             {% endfor %}
             {% else %}
             <p>No hay pedidos creados.</p>
             {% endif %}
         </tbody>
-
     </table>
-
 </div>
+
 {% if is_paginated %}
 <div class="pagination">
     <span class="step-links">
@@ -70,9 +63,13 @@
     </span>
 </div>
 {% endif %}
+
 <div class="crear-pedido">
     <a class="crear" href="{% url 'pedido_create' %}">Crear nuevo pedido</a>
     <a class="crear" href="{% url 'ProductoPedido_create' %}">Añadir productos al pedido</a>
 </div>
+
+<button id="aumentar-btn" class="button button-primary">Aumentar tamaño</button>
+<button id="disminuir-btn" class="button button-secondary">Disminuir tamaño</button>
 
 {% endblock %}

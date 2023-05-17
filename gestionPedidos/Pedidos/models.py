@@ -62,5 +62,5 @@ class ProductoComponente(models.Model):
     producto_solicitado = models.ForeignKey(Producto, on_delete=models.CASCADE)
     componente_solicitado = models.ForeignKey(Componente, on_delete=models.CASCADE)
     def __str__(self):
-        return f"{self.producto_solicitado} - {self.componente_solicitado}"
+        return f"{self.producto_solicitado} - {self.componente_solicitado} "
     

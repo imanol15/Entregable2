@@ -1,29 +1,49 @@
-{% extends "base.html" %}
-
-{% block titulo %} Edit del pedido {% endblock %}
-
+{% extends 'base.html' %}
+{% block titulo %} Creacion del pedido {% endblock %}
 {% block contenido %}
 <div class="container">
-    <h1>Editar Pedido "{{ pedido.codigo_referencia }}"</h1>
-    <form method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            {{ form.codigo_referencia.label_tag }}
-            {{ form.codigo_referencia }}
-        </div>
-        <div class="form-group">
-            {{ form.fecha.label_tag }}
-            {{ form.fecha }}
-        </div>
-        <div class="form-group">
-            {{ form.cliente.label_tag }}
-            {{ form.cliente }}
-        </div>
-        <div class="form-group">
-            {{ form.preciototal.label_tag }}
-            {{ form.preciototal }}
-        </div>
-        <button type="submit" class="btn btn-primary">Actualizar</button>
-    </form>
+  <h1>Actualizar Pedido</h1>
+
+  <form method="post" onsubmit="return validarFormulario()">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.codigo_referencia.label_tag }}
+      {{ form.codigo_referencia }}
+    </div>
+    <div class="form-group">
+      {{ form.fecha.label_tag }}
+      {{ form.fecha }}
+    </div>
+    <div class="form-group">
+      {{ form.cliente.label_tag }}
+      {{ form.cliente }}
+    </div>
+    <div class="form-group" id="id_preciototal">
+      {{ form.preciototal.label_tag }}
+      {{ form.preciototal }}
+      
+    </div>
+    <br>
+    <p id="resultprecio" style="color: red"> </p>
+
+    
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+  </form>
+  
 </div>
+<script>
+  function validarFormulario() {
+    // Obtener el valor del campo precio total
+    var precioTotal = parseFloat(document.getElementById('id_preciototal').value);
+    
+    // Comprobar si el precio total es un número positivo
+    if (precioTotal <= 0 || isNaN(precioTotal)) {
+      document.getElementById('resultprecio').innerHTML = "El precio total debe ser un número positivo.";
+      return false;
+    } else {
+      document.getElementById('resultprecio').innerHTML = "";
+      return true;
+    }
+  }
+</script>
 {% endblock %}
