@@ -24,6 +24,15 @@ class PedidoListView(ListView):
     context_object_name = 'listado_pedidos'
     template_name = 'pedido_list.html'
     paginate_by = 3 
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        codigo_referencia_query = self.request.GET.get('codigo_referencia')
+
+        if codigo_referencia_query:
+            queryset = queryset.filter(codigo_referencia__icontains=codigo_referencia_query)
+
+        return queryset
     
 #Creacion Pedidos
 class PedidoCreateView(CreateView):
@@ -163,6 +172,15 @@ class ProductoListView(ListView):
     context_object_name = 'listado_productos'
     template_name = 'producto_list.html'
     paginate_by = 3 
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        referencia_query = self.request.GET.get('referencia')
+
+        if referencia_query:
+            queryset = queryset.filter(referencia__icontains=referencia_query)
+
+        return queryset
     
     
 #Creacion Productos

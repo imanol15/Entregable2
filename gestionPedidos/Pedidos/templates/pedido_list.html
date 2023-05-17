@@ -6,7 +6,12 @@
 <div class="listado-header">
     <h1>Listado del Pedidos</h1>
 </div>
-
+<div class="buscador">
+    <form method="GET">
+        <input type="text" name="codigo_referencia" placeholder="Buscar por Referencia">
+        <input type="submit" value="Buscar">
+    </form>
+</div>
 <div class="listado-tabla">
     {% if listado_pedidos %}
     <table>
