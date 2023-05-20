@@ -14,7 +14,7 @@
             {{ form.precio.label_tag }}
             {{ form.precio }}
         </div>
-        <p id="resultprecio" style="color: red"> </p>
+        <p id="resultprecio"> </p>
         <div class="form-group">
             {{ form.nombre.label_tag }}
             {{ form.nombre }}
@@ -36,19 +36,4 @@
         <button type="submit" class="btn btn-primary">Actualizar</button>
     </form>
 </div>
-<script>
-    function validarFormulario() {
-      // Obtener el valor del campo precio total
-      var precioTotal = parseFloat(document.getElementById('id_precio').value);
-      
-      // Comprobar si el precio total es un número positivo
-      if (precioTotal <= 0 || isNaN(precioTotal)) {
-        document.getElementById('resultprecio').innerHTML = "El precio debe ser un número positivo.";
-        return false;
-      } else {
-        document.getElementById('resultprecio').innerHTML = "";
-        return true;
-      }
-    }
-  </script>
 {% endblock %}

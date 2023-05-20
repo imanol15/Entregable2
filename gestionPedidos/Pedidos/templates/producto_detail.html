@@ -6,37 +6,29 @@
     <div class="listado-header">
         <h1>Detalle del producto</h1>
     </div>
-    {% if producto.componentes.all %}
+    {% if producto %}
     <div class="listado-tabla">
         <table>
             <thead>
                 <tr>
                     <th>Producto referencia</th>
+                    <th>Producto precio</th>
                     <th>Producto nombre</th>
+                    <th>Producto descripcion</th>
                     <th>Categoria</th>
-                    <th>Componente</th>
                     <th>Volver</th>
                 </tr>
             </thead>
-            {% for producto_componente in producto.productocomponente_set.all %}
             <tbody>
                 <tr>
-                    <td>
-                        {{ producto_componente.producto_solicitado.referencia }}
-                    </td>
-                    <td>
-                        {{ producto_componente.producto_solicitado.nombre }}
-                    </td>
-                    <td>
-                        {{ producto_componente.producto_solicitado.categoria }}
-                    </td>
-                    <td>
-                        {{ producto_componente.componente_solicitado.nombre_modelo }}
-                    </td>
-                    <td><a class="datos" href="{% url 'listado_pedidos'%}">Volver</a></td>
+                <td>{{ producto.referencia }}</td>
+                <td>{{ producto.precio }}</td>
+                <td>{{ producto.nombre}}</td>
+                <td>{{ producto.descripcion}}</td>
+                <td>{{ producto.categoria}}</td>
+                    <td><a class="datos" href="{% url 'listado_productos'%}">Volver</a></td>
                 </tr>
             </tbody>
-            {% endfor %}
         </table>
     </div>
     {% else %}

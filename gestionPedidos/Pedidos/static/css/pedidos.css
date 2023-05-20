@@ -672,7 +672,18 @@ footer {
 .buscador input[type="submit"]:hover {
   background-color: #45a049;
 }
-
+#resultcif p{
+  color: red;
+}
+#resultprecio p{
+  color: red;
+}
+#cantidadField{
+  display: none;
+}
+#pedidoSolicitadoField{
+  display: none;
+}
 /* ejemplo de tamaño de pantalla*/
 @media (max-width: 600px) {
 
