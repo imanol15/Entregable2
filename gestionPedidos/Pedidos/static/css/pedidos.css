@@ -684,6 +684,12 @@ footer {
 #pedidoSolicitadoField{
   display: none;
 }
+#nombremodeloField{
+  display: none;
+}
+#marcaField{
+  display: none;
+}
 /* ejemplo de tamaño de pantalla*/
 @media (max-width: 600px) {
 
