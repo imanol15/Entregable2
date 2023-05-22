@@ -4,17 +4,16 @@
 <div class="container">
     <h1>Actualizar Producto</h1>
 
-    <form method="post" onsubmit="return validarFormulario()">
+    <form method="post" >
         {% csrf_token %}
         <div class="form-group">
             {{ form.referencia.label_tag }}
             {{ form.referencia }}
         </div>
-        <div class="form-group" id="id_precio">
+        <div class="form-group" >
             {{ form.precio.label_tag }}
             {{ form.precio }}
         </div>
-        <p id="resultprecio"> </p>
         <div class="form-group">
             {{ form.nombre.label_tag }}
             {{ form.nombre }}

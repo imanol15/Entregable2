@@ -5,7 +5,7 @@
     <h1>Crear componente</h1>
     <form method="post">
         {% csrf_token %}
-        <div class="form-group">
+        <div class="form-group" id="id_componentes_codigo_referencia">
             {{ form.componentes_codigo_referencia.label_tag }}
             {{ form.componentes_codigo_referencia }}
         </div>

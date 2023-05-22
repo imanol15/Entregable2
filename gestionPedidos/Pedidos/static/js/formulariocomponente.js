@@ -3,7 +3,8 @@ window.addEventListener('DOMContentLoaded', function() {
     var nombreModeloField = document.getElementById('nombremodeloField');
     var marcaField = document.getElementById('marcaField');
 
-    codigoReferenciaField.addEventListener('input', function() {
+    if (codigoReferenciaField && nombreModeloField && marcaField) {
+    codigoReferenciaField.addEventListener('change', function() {
       if (codigoReferenciaField.value !== '') {
         nombreModeloField.style.display = 'block';
       } else {
@@ -12,11 +13,12 @@ window.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    nombreModeloField.addEventListener('input', function() {
+    nombreModeloField.addEventListener('change', function() {
       if (nombreModeloField.value !== '') {
         marcaField.style.display = 'block';
       } else {
         marcaField.style.display = 'none';
       }
     });
+  }
   });

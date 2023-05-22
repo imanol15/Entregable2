@@ -8,7 +8,7 @@
 
   <form method="post">
     {% csrf_token %}
-    <div class="form-group">
+    <div class="form-group" id="id_producto_solicitado">
       {{ form.producto_solicitado.label_tag }}
       {{ form.producto_solicitado }}
     </div>

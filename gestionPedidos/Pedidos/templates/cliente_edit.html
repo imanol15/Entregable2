@@ -5,13 +5,12 @@
 {% block contenido %}
 <div class="container">
   <h1>Actualizar Cliente</h1>
-  <form method="post" onsubmit="return validarFormulario()">
+  <form method="post">
     {% csrf_token %}
-    <div class="form-group" id="'id_cif'">
+    <div class="form-group">
       {{ form.cif.label_tag }}
       {{ form.cif }}
     </div>
-    <p id="resultcif"> </p>
     <div class="form-group">
       {{ form.nombre_empresa.label_tag }}
       {{ form.nombre_empresa }}
