@@ -4,13 +4,13 @@
 <div class="container">
     <h1>Crear Producto</h1>
 
-    <form method="post" onsubmit="return validarFormulario()">
+    <form method="post" onsubmit="return validarFormularioPrecio() ">
         {% csrf_token %}
         <div class="form-group">
             {{ form.referencia.label_tag }}
             {{ form.referencia }}
         </div>
-        <div class="form-group" id="'id_precio'">
+        <div class="form-group" id="id_precio">
             {{ form.precio.label_tag }}
             {{ form.precio }}
         </div>

@@ -4,7 +4,7 @@
 <div class="container">
   <h1>Crear Pedido</h1>
 
-  <form method="post" onsubmit="return validarFormulario()">
+  <form method="post" onsubmit="return validarFormularioPrecioTotal()">
     {% csrf_token %}
     <div class="form-group">
       {{ form.codigo_referencia.label_tag }}

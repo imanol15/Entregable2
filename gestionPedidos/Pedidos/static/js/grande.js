@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function cambiarTamanioTexto(factor) {
-  var elementosTexto = document.querySelectorAll('h1, h2, button, p, tr, td, th, a');
+  var elementosTexto = document.querySelectorAll('h1, h2, button, p, tr, td, th, a, input, textarea, select, label');
 
   elementosTexto.forEach(function(elemento) {
     var tamañoActual = parseInt(window.getComputedStyle(elemento).fontSize);

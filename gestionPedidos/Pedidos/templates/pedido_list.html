@@ -22,7 +22,6 @@
                 <th>Fecha</th>
                 <th>Cliente</th>
                 <th>Precio Total</th>
-                <th>Producto</th>
                 <th>Borrar</th>
                 <th>Editar</th>
                 <th>Detalle</th>
@@ -37,10 +36,6 @@
                 <td><a class="boton-navegacion"
                         href="{% url 'cliente_detail' pk=pedido.cliente.id %}">{{pedido.cliente}}</a></td>
                 <td>{{ pedido.preciototal}}</td>
-                <td>{% for producto_pedido in pedido.productopedido_set.all %}
-                    {{ producto_pedido.producto_solicitado.nombre }}
-                    {% endfor %}
-                </td>
                 <td><a class="datos" href="{% url 'pedido_delete' pk=pedido.id %}">Borrar</a></td>
                 <td><a class="datos" href="{% url 'pedido_edit' pk=pedido.id %}">Editar</a></td>
                 <td><a class="datos" href="{% url 'pedido_detail' pk=pedido.id %}">Detalle</a></td>
