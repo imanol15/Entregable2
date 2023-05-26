@@ -27,6 +27,8 @@ urlpatterns = [
     path('componentes/create/', views.ComponenteCreateView.as_view(), name='componente_create'),
     path('componentes/<int:pk>/borrar/', views.ComponenteDeleteView.as_view(), name='componente_delete'),
     path('componentes/<int:pk>/editar/', views.ComponenteUpdateView.as_view(), name='componente_edit'),
+    path('api/componentes/<int:id>/', views.obtener_detalles_componente, name='api_componente'),
+
     #Urls de producto
     path('productos/', views.ProductoListView.as_view(), name='listado_productos'),
     path('productos/<int:pk>', views.ProductoDetailView.as_view(), name='producto_detail'),
