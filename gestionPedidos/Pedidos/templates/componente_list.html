@@ -3,10 +3,8 @@
 {% block titulo %}Listado de componentes{% endblock %}
 
 {% block contenido %}
-
-
 <div class="listado-header">
-    <h1>Listado del Componentes</h1>
+    <h1>Listado de Componentes</h1>
 </div>
 <div class="buscador">
     <form method="GET">
@@ -16,14 +14,14 @@
 </div>
 <div class="listado-tabla">
     {% if listado_componentes %}
-    <table>
+    <table id="tabla-componentes">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Codigo Referencia</th>
-                <th>Modelo</th>
-                <th>Marca</th>
                 <th>Ver Detalle</th>
+                <th>Borrar</th>
+                <th>Editar</th>
             </tr>
         </thead>
 
@@ -32,17 +30,17 @@
             <tr>
                 <td>{{ componente.id }}</td>
                 <td>{{ componente.componentes_codigo_referencia }}</td>
-                <td>{{ componente.nombre_modelo }}</td>
-                <td>{{ componente.marca}}</td>
-                <td><a class="datos" href="{% url 'componente_detail' pk=componente.id %}">Detalle</a></td>
-                {% endfor %}
+                <td><button class="detail_button btn-detalle">Detalle</td>
+                <td><a class="datos" href="{% url 'componente_delete' pk=componente.id %}">Borrar</a></td>
+                <td><a class="datos" href="{% url 'componente_edit' pk=componente.id %}">Editar</a></td>
             </tr>
-
-            {% else %}
-            <p>No hay componentes creados.</p>
-            {% endif %}
+            {% endfor %}
+            <tr id="fila-nueva" style="display: none;"></tr>
         </tbody>
     </table>
+    {% else %}
+    <p>No hay componentes creados.</p>
+    {% endif %}
 </div>
 {% if is_paginated %}
 <div class="pagination">
