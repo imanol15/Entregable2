@@ -1,4 +1,5 @@
 
+from django.http import JsonResponse
 from .models import Producto, Pedido,Componente, Cliente,ProductoPedido
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from Pedidos.forms import PedidoForm, ClienteForm,ComponenteForm,ProductoForm,ProductoPedidoForm
@@ -232,3 +233,15 @@ def show_pedido(request, cliente_id):
     context = { 'cliente': cliente, 'listado_pedidos' : pedido }
     return render(request, 'pedido_list.html', context)
 
+def obtener_detalles_componente(request, id):
+    try:
+        componente = Componente.objects.get(id=id)
+        detalles = {
+            'id': id,
+            'codigo_referencia': componente.componentes_codigo_referencia,
+            'modelo': componente.nombre_modelo,
+            'marca': componente.marca,
+        }
+        return JsonResponse(detalles)
+    except Componente.DoesNotExist:
+        return JsonResponse({'error': 'El componente no existe'}, status=404)
