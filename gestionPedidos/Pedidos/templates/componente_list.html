@@ -30,7 +30,7 @@
             <tr>
                 <td>{{ componente.id }}</td>
                 <td>{{ componente.componentes_codigo_referencia }}</td>
-                <td><button class="detail_button btn-detalle">Detalle</td>
+                <td><button class="detail_button">Detalle</td>
                 <td><a class="datos" href="{% url 'componente_delete' pk=componente.id %}">Borrar</a></td>
                 <td><a class="datos" href="{% url 'componente_edit' pk=componente.id %}">Editar</a></td>
             </tr>

@@ -451,7 +451,22 @@ footer {
 .listado-tabla ul,li{
   text-decoration: none;
 }
+.detail_button{
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #04AA6D;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  transition: all 0.2s ease;
+  cursor: pointer;
 
+}
+.detail_button:hover {
+  background-color: #3ca040;
+  transform: scale(1.05);
+}
 .datos  {
   display: inline-block;
   padding: 5px 10px;
@@ -461,6 +476,7 @@ footer {
   border-radius: 5px;
   margin-right: 5px;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .datos:hover {
