@@ -1,53 +1,43 @@
 function validarFormularioPrecio() {
-    // Obtener el valor del campo precio
-    var precio = parseFloat(document.getElementById('id_precio').value);
-  
-    // Comprobar si el precio es un número positivo
-    if (precio <= 0 || isNaN(precio)) {
-      document.getElementById('resultadoprecio').innerHTML = "El precio debe ser un número positivo.";
-      return false;
-    } else {
-      document.getElementById('resultadoprecio').innerHTML = "";
-      return true;
+  var precio = parseFloat(document.getElementById('id_precio').value);
+  if (precio < 0 || isNaN(precio)) {
+    document.getElementById('resultadoprecio').textContent = "El precio debe ser un número no negativo.";
+    return false;
+  } else {
+    document.getElementById('resultadoprecio').textContent = "";
+    return true;
     }
   }
   function ActualizarFormularioPrecio() {
-    // Obtener el valor del campo precio
     var precio = parseFloat(document.getElementById('id_precio').value);
-  
-    // Comprobar si el precio es un número positivo
-    if (precio <= 0 || isNaN(precio)) {
-      document.getElementById('resultadoprecio').innerHTML = "El precio debe ser un número positivo.";
+    if (precio < 0 || isNaN(precio)) {
+      document.getElementById('resultadoprecio').textContent = "El precio debe ser un número no negativo.";
       return false;
     } else {
-      document.getElementById('resultadoprecio').innerHTML = "";
+      document.getElementById('resultadoprecio').textContent = "";
       return true;
     }
   }
+  
   
   function validarFormularioPrecioTotal() {
-    // Obtener el valor del campo precio total
     var precioTotal = parseFloat(document.getElementById('id_preciototal').value);
-  
-    // Comprobar si el precio total es un número positivo
-    if (precioTotal <= 0 || isNaN(precioTotal)) {
-      document.getElementById('resultprecio').innerHTML = "El precio total debe ser un número positivo.";
+    if (precioTotal < 0 || isNaN(precioTotal)) {
+      document.getElementById('resultprecio').textContent = "El precio total debe ser un número no negativo.";
       return false;
     } else {
-      document.getElementById('resultprecio').innerHTML = "";
+      document.getElementById('resultprecio').textContent = "";
       return true;
     }
   }
-  function ActualizarFormularioPrecioTotal() {
-    // Obtener el valor del campo precio total
-    var precioTotal = parseFloat(document.getElementById('id_preciototal').value);
   
-    // Comprobar si el precio total es un número positivo
-    if (precioTotal <= 0 || isNaN(precioTotal)) {
-      document.getElementById('resultprecio').innerHTML = "El precio total debe ser un número positivo.";
+  function ActualizarFormularioPrecioTotal() {
+    var precioTotal = parseFloat(document.getElementById('id_preciototal').value);
+    if (precioTotal < 0 || isNaN(precioTotal)) {
+      document.getElementById('resultprecio').textContent = "El precio total debe ser un número no negativo.";
       return false;
     } else {
-      document.getElementById('resultprecio').innerHTML = "";
+      document.getElementById('resultprecio').textContent = "";
       return true;
     }
   }
